@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>upolicy by speijnik</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>upolicy</h1>
+        <p>Userspace security policies</p>
+        <p class="view"><a href="https://github.com/speijnik/upolicy">View the Project on GitHub <small>speijnik/upolicy</small></a></p>
+        <ul>
+          <li><a href="https://github.com/speijnik/upolicy/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/speijnik/upolicy/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/speijnik/upolicy">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <ul>
+<li>upolicy - Sandboxing with policy decisions in userspace</li>
+</ul><p>** Introduction</p>
+
+<p>upolicy allows unprivileged userspace processes to control access
+to their child processes system resources. This all is done in a 
+[[<a href="http://en.wikipedia.org/wiki/Time_of_check_to_time_of_use%5D%5BTOCTTOU%5D">http://en.wikipedia.org/wiki/Time_of_check_to_time_of_use][TOCTTOU]</a>] safe 
+way, by making use of the Linux Security Module API.</p>
+
+<p>upolicy is actually comprised of two pieces of software:</p>
+
+<ul>
+<li>a kernel module, which plugs into the LSM API and</li>
+<li>a userspace library</li>
+</ul><p>These two pieces communicate by the means of a generic netlink socket. The
+userspace library provides an abstraction of the actual kernel interface,
+making it quite easy to use (see [[<a href="http://github.com/speijnik/upolicy/examples/%5D%5BExamples">http://github.com/speijnik/upolicy/examples/][Examples</a> directory]]).</p>
+
+<p>As of the time of this writing the code which can be found here should be
+considered as an early technology preview. 
+It will contain some rough edges at some places and the API must NOT be
+considered stable and is subject to change at any time.</p>
+
+<p>upolicy is not yet intended to be used in production environments. 
+You have been warned.</p>
+
+<p>** Installing</p>
+
+<p>*** Requirements</p>
+
+<ul>
+<li>kernel with LSMStub patch (see below)</li>
+<li>libnl &gt;= 3.2 (specifically also the genl part)</li>
+<li>automake, autoconf, libtool and friends (for building)</li>
+<li>Python &gt;= 2.7, &lt; 3.0 for building the Python bindings</li>
+<li>Doxygen for building the library documentation</li>
+<li>Perl for building the kernel documentation</li>
+</ul><p>*** Requirements (Ubuntu 12.04)</p>
+
+<p>On Ubuntu 12.04 the following packages should do:</p>
+
+<p>apt-get install build-essential libnl-3-dev libnl-genl-3-dev python-all-dev automake autoconf libtool perl</p>
+
+<p>Additionally the LSMStub PPA is required:
+apt-add-repository ppa:speijnik/lsmstub-kernel</p>
+
+<p>*** LSMStub kernel
+In upolicy's early development stage it is favorable to be able to load and
+unload the module at will. Unfortunately, this is not possible with the LSM
+API per-se, because it is not exported to loadable kernel modules.
+In short: upolicy requires a patched kernel, which implements the LSMStub
+API. Such kernels can be either found in code-form at [[<a href="https://github.com/speijnik/linux/tree/ubuntu_precise%5D%5Bgithub.com/speijnik/linux/%5D">https://github.com/speijnik/linux/tree/ubuntu_precise][github.com/speijnik/linux/]</a>] or pre-compiled
+for Ubuntu 12.04 at [[<a href="https://launchpad.net/%7Espeijnik/+archive/lsmstub-kernel%5D%5Blaunchpad:">https://launchpad.net/~speijnik/+archive/lsmstub-kernel][launchpad:</a> LSMStub enabled kernels PPA]].
+Be warned that AppArmor is not enabled by default in the pre-built kernels, so do not use them on production systems.</p>
+
+<p>** Documentation</p>
+
+<p>The upolicy documentation can be found at [[<a href="http://speijnik.github.com/upolicy/doc%5D">http://speijnik.github.com/upolicy/doc]</a>].</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/speijnik">speijnik</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
