@@ -14,7 +14,7 @@ upolicy is actually comprised of two pieces of software:
 
 These two pieces communicate by the means of a generic netlink socket. The
 userspace library provides an abstraction of the actual kernel interface,
-making it quite easy to use (see [[./examples/][Examples directory]]).
+making it quite easy to use (see [[http://github.com/speijnik/upolicy/examples/][Examples directory]]).
 
 As of the time of this writing the code which can be found here should be
 considered as an early technology preview. 
@@ -24,7 +24,7 @@ considered stable and is subject to change at any time.
 upolicy is not yet intended to be used in production environments. 
 You have been warned.
 
-** Installing upolicy
+** Installing
 
 *** Requirements
 
@@ -51,9 +51,9 @@ unload the module at will. Unfortunately, this is not possible with the LSM
 API per-se, because it is not exported to loadable kernel modules.
 In short: upolicy requires a patched kernel, which implements the LSMStub
 API. Such kernels can be either found in code-form at [[https://github.com/speijnik/linux/tree/ubuntu_precise][github.com/speijnik/linux/]] or pre-compiled
-for Ubuntu 12.04 at [[https://launchpad.net/~speijnik/+archive/lsmstub-kernel][launchpad: LSMStub enabled kernels PPA].
+for Ubuntu 12.04 at [[https://launchpad.net/~speijnik/+archive/lsmstub-kernel][launchpad: LSMStub enabled kernels PPA]].
 Be warned that AppArmor is not enabled by default in the pre-built kernels, so do not use them on production systems.
 
-** upolicy documentation
+** Documentation
 
 The upolicy documentation can be found at [[http://speijnik.github.com/upolicy/doc]].
