@@ -30,8 +30,7 @@
 
 <p>upolicy allows unprivileged userspace processes to control access
 to their child processes system resources. This all is done in a 
-[[<a href="http://en.wikipedia.org/wiki/Time_of_check_to_time_of_use%5D%5BTOCTTOU%5D">http://en.wikipedia.org/wiki/Time_of_check_to_time_of_use][TOCTTOU]</a>] safe 
-way, by making use of the Linux Security Module API.</p>
+<a href="http://en.wikipedia.org/wiki/Time_of_check_to_time_of_use">TOCTTOU</a> safe way, by making use of the Linux Security Module API.</p>
 
 <p>upolicy is actually comprised of two pieces of software:</p>
 
@@ -40,7 +39,7 @@ way, by making use of the Linux Security Module API.</p>
 <li>a userspace library</li>
 </ul><p>These two pieces communicate by the means of a generic netlink socket. The
 userspace library provides an abstraction of the actual kernel interface,
-making it quite easy to use (see [[<a href="http://github.com/speijnik/upolicy/examples/%5D%5BExamples">http://github.com/speijnik/upolicy/examples/][Examples</a> directory]]).</p>
+making it quite easy to use (see <a href="http://github.com/speijnik/upolicy/examples/">Examples directory</a>).</p>
 
 <p>As of the time of this writing the code which can be found here should be
 considered as an early technology preview. 
@@ -75,13 +74,13 @@ In upolicy's early development stage it is favorable to be able to load and
 unload the module at will. Unfortunately, this is not possible with the LSM
 API per-se, because it is not exported to loadable kernel modules.
 In short: upolicy requires a patched kernel, which implements the LSMStub
-API. Such kernels can be either found in code-form at [[<a href="https://github.com/speijnik/linux/tree/ubuntu_precise%5D%5Bgithub.com/speijnik/linux/%5D">https://github.com/speijnik/linux/tree/ubuntu_precise][github.com/speijnik/linux/]</a>] or pre-compiled
-for Ubuntu 12.04 at [[<a href="https://launchpad.net/%7Espeijnik/+archive/lsmstub-kernel%5D%5Blaunchpad:">https://launchpad.net/~speijnik/+archive/lsmstub-kernel][launchpad:</a> LSMStub enabled kernels PPA]].
+API. Such kernels can be either found in code-form at <a href="https://github.com/speijnik/linux/tree/ubuntu_precise">github.com/speijnik/linux/</a> or pre-compiled
+for Ubuntu 12.04 at <a href="https://launchpad.net/%7Espeijnik/+archive/lsmstub-kernel">LSMStub enabled kernels PPA</a>
 Be warned that AppArmor is not enabled by default in the pre-built kernels, so do not use them on production systems.</p>
 
 <h3>Documentation</h3>
 
-<p>The upolicy documentation can be found at [[<a href="http://speijnik.github.com/upolicy/doc%5D">http://speijnik.github.com/upolicy/doc]</a>].</p>
+<p>The upolicy documentation can be found at <a href="http://speijnik.github.com/upolicy/doc">http://speijnik.github.com/upolicy/doc</a>.</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/speijnik">speijnik</a></p>
