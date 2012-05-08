@@ -25,9 +25,8 @@
         </ul>
       </header>
       <section>
-        <ul>
-<li>upolicy - Sandboxing with policy decisions in userspace</li>
-</ul><p>** Introduction</p>
+	<h2>upolicy - Sandboxing with policy decisions in userspace</h2>
+<h3>Introduction</h3>
 
 <p>upolicy allows unprivileged userspace processes to control access
 to their child processes system resources. This all is done in a 
@@ -51,9 +50,9 @@ considered stable and is subject to change at any time.</p>
 <p>upolicy is not yet intended to be used in production environments. 
 You have been warned.</p>
 
-<p>** Installing</p>
+<h3>Installing</h3>
 
-<p>*** Requirements</p>
+<h4>Requirements</h4>
 
 <ul>
 <li>kernel with LSMStub patch (see below)</li>
@@ -71,7 +70,7 @@ You have been warned.</p>
 <p>Additionally the LSMStub PPA is required:
 apt-add-repository ppa:speijnik/lsmstub-kernel</p>
 
-<p>*** LSMStub kernel
+<h4>LSMStub kernel</h4>
 In upolicy's early development stage it is favorable to be able to load and
 unload the module at will. Unfortunately, this is not possible with the LSM
 API per-se, because it is not exported to loadable kernel modules.
@@ -80,7 +79,7 @@ API. Such kernels can be either found in code-form at [[<a href="https://github.
 for Ubuntu 12.04 at [[<a href="https://launchpad.net/%7Espeijnik/+archive/lsmstub-kernel%5D%5Blaunchpad:">https://launchpad.net/~speijnik/+archive/lsmstub-kernel][launchpad:</a> LSMStub enabled kernels PPA]].
 Be warned that AppArmor is not enabled by default in the pre-built kernels, so do not use them on production systems.</p>
 
-<p>** Documentation</p>
+<h3>Documentation</h3>
 
 <p>The upolicy documentation can be found at [[<a href="http://speijnik.github.com/upolicy/doc%5D">http://speijnik.github.com/upolicy/doc]</a>].</p>
       </section>
