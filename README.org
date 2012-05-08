@@ -1,0 +1,59 @@
+* upolicy - Sandboxing with policy decisions in userspace
+
+** Introduction
+
+upolicy allows unprivileged userspace processes to control access
+to their child processes system resources. This all is done in a 
+[[http://en.wikipedia.org/wiki/Time_of_check_to_time_of_use][TOCTTOU]] safe 
+way, by making use of the Linux Security Module API.
+
+upolicy is actually comprised of two pieces of software:
+
+- a kernel module, which plugs into the LSM API and
+- a userspace library
+
+These two pieces communicate by the means of a generic netlink socket. The
+userspace library provides an abstraction of the actual kernel interface,
+making it quite easy to use (see [[./examples/][Examples directory]]).
+
+As of the time of this writing the code which can be found here should be
+considered as an early technology preview. 
+It will contain some rough edges at some places and the API must NOT be
+considered stable and is subject to change at any time.
+
+upolicy is not yet intended to be used in production environments. 
+You have been warned.
+
+** Installing upolicy
+
+*** Requirements
+
+- kernel with LSMStub patch (see below)
+- libnl >= 3.2 (specifically also the genl part)
+- automake, autoconf, libtool and friends (for building)
+- Python >= 2.7, < 3.0 for building the Python bindings
+- Doxygen for building the library documentation
+- Perl for building the kernel documentation
+
+
+*** Requirements (Ubuntu 12.04)
+
+On Ubuntu 12.04 the following packages should do:
+
+apt-get install build-essential libnl-3-dev libnl-genl-3-dev python-all-dev automake autoconf libtool perl
+
+Additionally the LSMStub PPA is required:
+apt-add-repository ppa:speijnik/lsmstub-kernel
+
+*** LSMStub kernel
+In upolicy's early development stage it is favorable to be able to load and
+unload the module at will. Unfortunately, this is not possible with the LSM
+API per-se, because it is not exported to loadable kernel modules.
+In short: upolicy requires a patched kernel, which implements the LSMStub
+API. Such kernels can be either found in code-form at [[https://github.com/speijnik/linux/tree/ubuntu_precise][github.com/speijnik/linux/]] or pre-compiled
+for Ubuntu 12.04 at [[https://launchpad.net/~speijnik/+archive/lsmstub-kernel][launchpad: LSMStub enabled kernels PPA].
+Be warned that AppArmor is not enabled by default in the pre-built kernels, so do not use them on production systems.
+
+** upolicy documentation
+
+The upolicy documentation can be found at [[http://speijnik.github.com/upolicy/doc]].
