@@ -47,8 +47,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="dirs.html"><span>Directories</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -79,23 +81,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
-<div class="title">upolicy_event_info Struct Reference</div>  </div>
+<div class="title">upolicy_event_info Struct Reference<div class="ingroups"><a class="el" href="group__Context.html">Context</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <!-- doxytag: class="upolicy_event_info" -->
-<p><code>#include &lt;<a class="el" href="context_8h_source.html">context.h</a>&gt;</code></p>
+<p>event information passed to every event handler  
+ <a href="structupolicy__event__info.html#details">More...</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structupolicy__context.html">upolicy_context</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__event__info.html#a423ab468f15ed660e701be06d15b91c3">ctx</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">context that caused the event  <a href="#a423ab468f15ed660e701be06d15b91c3"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">pid_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__event__info.html#aca42c5bdfb8b42551cbaa7bc04a4843e">pid</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">process ID that caused the event  <a href="#aca42c5bdfb8b42551cbaa7bc04a4843e"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">pid_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__event__info.html#a837e51fd0f8a2d93561b98be9e8c221a">tid</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">thread ID that caused the event  <a href="#a837e51fd0f8a2d93561b98be9e8c221a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__event__info.html#a3bf9b62ae3f501ebc31fcce50e6a182e">is_notification</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">1 if event is a notification  <a href="#a3bf9b62ae3f501ebc31fcce50e6a182e"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>event information passed to every event handler </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00036">36</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00045">45</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 </div><hr/><h2>Field Documentation</h2>
 <a class="anchor" id="a423ab468f15ed660e701be06d15b91c3"></a><!-- doxytag: member="upolicy_event_info::ctx" ref="a423ab468f15ed660e701be06d15b91c3" args="" -->
 <div class="memitem">
@@ -107,9 +114,10 @@ Data Fields</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>context that caused the event </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00037">37</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00046">46</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -123,9 +131,10 @@ Data Fields</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>1 if event is a notification </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00040">40</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00049">49</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -139,9 +148,10 @@ Data Fields</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>process ID that caused the event </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00038">38</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00047">47</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -155,14 +165,15 @@ Data Fields</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>thread ID that caused the event </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00039">39</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00048">48</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>lib/c/include/upolicy/<a class="el" href="context_8h_source.html">context.h</a></li>
+<li>upolicy/<a class="el" href="context_8h_source.html">context.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- window showing the filter options -->
@@ -170,7 +181,7 @@ Data Fields</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -182,7 +193,7 @@ Data Fields</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 8 2012 15:32:44 for upolicy by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 9 2012 10:49:34 for upolicy by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

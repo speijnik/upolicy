@@ -47,8 +47,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="dirs.html"><span>Directories</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -79,46 +81,62 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
-<div class="title">upolicy_ops Struct Reference</div>  </div>
+<div class="title">upolicy_ops Struct Reference<div class="ingroups"><a class="el" href="group__Context.html">Context</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <!-- doxytag: class="upolicy_ops" -->
-<p><code>#include &lt;<a class="el" href="context_8h_source.html">context.h</a>&gt;</code></p>
+<p>Structure holding per-context callbacks.  
+ <a href="structupolicy__ops.html#details">More...</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">upolicy_decision(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#a8729fe541babbe5486cff3bcb881595c">all_tracees_exited</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">upolicy_decision(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#a50be4f1b40a7f649f891a17438de9295">tracer_init</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">upolicy_decision(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#aa83fe6c403f8fdce3e24d80721a09545">clone</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, u_int32_t flags)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">upolicy_decision(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#a60c4c42fb6cd374681884e24709816e7">kill</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, pid_t pid, int signo)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">upolicy_decision(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#ab12c563314570eb95783121190aaf21d">exec</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, const char *path)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">upolicy_decision(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#a3fb3f42c059c80fa48036b2b5e276695">open</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, const char *path, mode_t mode)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">upolicy_decision(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#a482ecebaeaf32195ef481aa918ef322f">symlink</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, const char *source, const char *destination)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">upolicy_decision(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#a7065f3fd7dd7fda7eb1cf57972ce072e">socket_accept</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, struct sockaddr *local_address, int local_addrlen, struct sockaddr *remote_addr, int remote_addrlen)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">upolicy_decision(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#afff3dd7571662f68efa89826a7e2bd8a">socket_bind</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, struct sockaddr *address, int addrlen)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">upolicy_decision(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#aabdf027f84dd30e50effe697ff3848cb">socket_connect</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, struct sockaddr *local_address, int local_addrlen, struct sockaddr *remote_address, int remote_addrlen)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">upolicy_decision(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#a6f7e601bbdae87289335161298aa49eb">socket_create</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, int type, int protocol)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">upolicy_decision(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#a61834c5cf3581e52ecd6744c85a97da4">socket_listen</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, struct sockaddr *address, int addrlen)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">upolicy_decision(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#a7848ecfcfe7309f5d5e44d1f9f71047b">ptrace_attach</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, pid_t pid, unsigned int mode)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#a8729fe541babbe5486cff3bcb881595c">all_tracees_exited</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">All tracees in this context have exited callback.  <a href="#a8729fe541babbe5486cff3bcb881595c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#a50be4f1b40a7f649f891a17438de9295">tracer_init</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Tracee tries to become tracer callback.  <a href="#a50be4f1b40a7f649f891a17438de9295"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#aa83fe6c403f8fdce3e24d80721a09545">clone</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, u_int32_t flags)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">clone event callback  <a href="#aa83fe6c403f8fdce3e24d80721a09545"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#a60c4c42fb6cd374681884e24709816e7">kill</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, pid_t pid, int signo)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">kill event callback  <a href="#a60c4c42fb6cd374681884e24709816e7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#ab12c563314570eb95783121190aaf21d">exec</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, const char *path)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">exec event callback  <a href="#ab12c563314570eb95783121190aaf21d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#a3fb3f42c059c80fa48036b2b5e276695">open</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, const char *path, mode_t mode)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">open event callback  <a href="#a3fb3f42c059c80fa48036b2b5e276695"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#a482ecebaeaf32195ef481aa918ef322f">symlink</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, const char *source, const char *destination)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">symlink event callback  <a href="#a482ecebaeaf32195ef481aa918ef322f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#a7065f3fd7dd7fda7eb1cf57972ce072e">socket_accept</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, struct sockaddr *local_address, int local_addrlen, struct sockaddr *remote_addr, int remote_addrlen)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">accept event callback  <a href="#a7065f3fd7dd7fda7eb1cf57972ce072e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#afff3dd7571662f68efa89826a7e2bd8a">socket_bind</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, struct sockaddr *address, int addrlen)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">bind event callback  <a href="#afff3dd7571662f68efa89826a7e2bd8a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#aabdf027f84dd30e50effe697ff3848cb">socket_connect</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, struct sockaddr *local_address, int local_addrlen, struct sockaddr *remote_address, int remote_addrlen)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">connect event callback  <a href="#aabdf027f84dd30e50effe697ff3848cb"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#a6f7e601bbdae87289335161298aa49eb">socket_create</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, int type, int protocol)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">socket creation event callback  <a href="#a6f7e601bbdae87289335161298aa49eb"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#a61834c5cf3581e52ecd6744c85a97da4">socket_listen</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, struct sockaddr *address, int addrlen)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">listen event callback  <a href="#a61834c5cf3581e52ecd6744c85a97da4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__ops.html#a7848ecfcfe7309f5d5e44d1f9f71047b">ptrace_attach</a> )(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, pid_t pid, unsigned int mode)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ptrace attach event callback  <a href="#a7848ecfcfe7309f5d5e44d1f9f71047b"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Structure holding per-context callbacks. These are used for both question and notification events. </p>
+<div class="textblock"><p>Structure holding per-context callbacks. </p>
+<p>These are used for both question and notification events. </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00047">47</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00056">56</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 </div><hr/><h2>Field Documentation</h2>
 <a class="anchor" id="a8729fe541babbe5486cff3bcb881595c"></a><!-- doxytag: member="upolicy_ops::all_tracees_exited" ref="a8729fe541babbe5486cff3bcb881595c" args=")(struct upolicy_event_info *info)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">upolicy_decision(* <a class="el" href="structupolicy__ops.html#a8729fe541babbe5486cff3bcb881595c">upolicy_ops::all_tracees_exited</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info)</td>
+          <td class="memname"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(* <a class="el" href="structupolicy__ops.html#a8729fe541babbe5486cff3bcb881595c">upolicy_ops::all_tracees_exited</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info)</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<p>All tracees in this context have exited callback </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00049">49</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>All tracees in this context have exited callback. </p>
+
+<p>Definition at line <a class="el" href="context_8h_source.html#l00058">58</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -127,14 +145,15 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">upolicy_decision(* <a class="el" href="structupolicy__ops.html#aa83fe6c403f8fdce3e24d80721a09545">upolicy_ops::clone</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, u_int32_t flags)</td>
+          <td class="memname"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(* <a class="el" href="structupolicy__ops.html#aa83fe6c403f8fdce3e24d80721a09545">upolicy_ops::clone</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, u_int32_t flags)</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>clone event callback </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00054">54</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00063">63</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -143,14 +162,15 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">upolicy_decision(* <a class="el" href="structupolicy__ops.html#ab12c563314570eb95783121190aaf21d">upolicy_ops::exec</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, const char *path)</td>
+          <td class="memname"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(* <a class="el" href="structupolicy__ops.html#ab12c563314570eb95783121190aaf21d">upolicy_ops::exec</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, const char *path)</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>exec event callback </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00058">58</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00067">67</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -159,14 +179,15 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">upolicy_decision(* <a class="el" href="structupolicy__ops.html#a60c4c42fb6cd374681884e24709816e7">upolicy_ops::kill</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, pid_t pid, int signo)</td>
+          <td class="memname"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(* <a class="el" href="structupolicy__ops.html#a60c4c42fb6cd374681884e24709816e7">upolicy_ops::kill</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, pid_t pid, int signo)</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>kill event callback </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00056">56</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00065">65</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -175,14 +196,15 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">upolicy_decision(* <a class="el" href="structupolicy__ops.html#a3fb3f42c059c80fa48036b2b5e276695">upolicy_ops::open</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, const char *path, mode_t mode)</td>
+          <td class="memname"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(* <a class="el" href="structupolicy__ops.html#a3fb3f42c059c80fa48036b2b5e276695">upolicy_ops::open</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, const char *path, mode_t mode)</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>open event callback </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00061">61</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00070">70</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -191,14 +213,15 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">upolicy_decision(* <a class="el" href="structupolicy__ops.html#a7848ecfcfe7309f5d5e44d1f9f71047b">upolicy_ops::ptrace_attach</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, pid_t pid, unsigned int mode)</td>
+          <td class="memname"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(* <a class="el" href="structupolicy__ops.html#a7848ecfcfe7309f5d5e44d1f9f71047b">upolicy_ops::ptrace_attach</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, pid_t pid, unsigned int mode)</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>ptrace attach event callback </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00092">92</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00101">101</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -207,14 +230,15 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">upolicy_decision(* <a class="el" href="structupolicy__ops.html#a7065f3fd7dd7fda7eb1cf57972ce072e">upolicy_ops::socket_accept</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, struct sockaddr *local_address, int local_addrlen, struct sockaddr *remote_addr, int remote_addrlen)</td>
+          <td class="memname"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(* <a class="el" href="structupolicy__ops.html#a7065f3fd7dd7fda7eb1cf57972ce072e">upolicy_ops::socket_accept</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, struct sockaddr *local_address, int local_addrlen, struct sockaddr *remote_addr, int remote_addrlen)</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>accept event callback </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00068">68</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00077">77</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -223,14 +247,15 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">upolicy_decision(* <a class="el" href="structupolicy__ops.html#afff3dd7571662f68efa89826a7e2bd8a">upolicy_ops::socket_bind</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, struct sockaddr *address, int addrlen)</td>
+          <td class="memname"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(* <a class="el" href="structupolicy__ops.html#afff3dd7571662f68efa89826a7e2bd8a">upolicy_ops::socket_bind</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, struct sockaddr *address, int addrlen)</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>bind event callback </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00074">74</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00083">83</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -239,14 +264,15 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">upolicy_decision(* <a class="el" href="structupolicy__ops.html#aabdf027f84dd30e50effe697ff3848cb">upolicy_ops::socket_connect</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, struct sockaddr *local_address, int local_addrlen, struct sockaddr *remote_address, int remote_addrlen)</td>
+          <td class="memname"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(* <a class="el" href="structupolicy__ops.html#aabdf027f84dd30e50effe697ff3848cb">upolicy_ops::socket_connect</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, struct sockaddr *local_address, int local_addrlen, struct sockaddr *remote_address, int remote_addrlen)</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>connect event callback </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00078">78</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00087">87</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -255,14 +281,15 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">upolicy_decision(* <a class="el" href="structupolicy__ops.html#a6f7e601bbdae87289335161298aa49eb">upolicy_ops::socket_create</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, int type, int protocol)</td>
+          <td class="memname"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(* <a class="el" href="structupolicy__ops.html#a6f7e601bbdae87289335161298aa49eb">upolicy_ops::socket_create</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, int type, int protocol)</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>socket creation event callback </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00085">85</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00094">94</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -271,14 +298,15 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">upolicy_decision(* <a class="el" href="structupolicy__ops.html#a61834c5cf3581e52ecd6744c85a97da4">upolicy_ops::socket_listen</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, struct sockaddr *address, int addrlen)</td>
+          <td class="memname"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(* <a class="el" href="structupolicy__ops.html#a61834c5cf3581e52ecd6744c85a97da4">upolicy_ops::socket_listen</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, int family, struct sockaddr *address, int addrlen)</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>listen event callback </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00088">88</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00097">97</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -287,14 +315,15 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">upolicy_decision(* <a class="el" href="structupolicy__ops.html#a482ecebaeaf32195ef481aa918ef322f">upolicy_ops::symlink</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, const char *source, const char *destination)</td>
+          <td class="memname"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(* <a class="el" href="structupolicy__ops.html#a482ecebaeaf32195ef481aa918ef322f">upolicy_ops::symlink</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info, const char *source, const char *destination)</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>symlink event callback </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00064">64</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00073">73</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -303,19 +332,20 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">upolicy_decision(* <a class="el" href="structupolicy__ops.html#a50be4f1b40a7f649f891a17438de9295">upolicy_ops::tracer_init</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info)</td>
+          <td class="memname"><a class="el" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">upolicy_decision</a>(* <a class="el" href="structupolicy__ops.html#a50be4f1b40a7f649f891a17438de9295">upolicy_ops::tracer_init</a>)(struct <a class="el" href="structupolicy__event__info.html">upolicy_event_info</a> *info)</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<p>Tracee tries to become tracer callback </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00051">51</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Tracee tries to become tracer callback. </p>
+
+<p>Definition at line <a class="el" href="context_8h_source.html#l00060">60</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>lib/c/include/upolicy/<a class="el" href="context_8h_source.html">context.h</a></li>
+<li>upolicy/<a class="el" href="context_8h_source.html">context.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- window showing the filter options -->
@@ -323,7 +353,7 @@ Data Fields</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -335,7 +365,7 @@ Data Fields</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 8 2012 15:32:44 for upolicy by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 9 2012 10:49:34 for upolicy by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

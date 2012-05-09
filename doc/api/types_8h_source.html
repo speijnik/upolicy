@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>upolicy: lib/c/include/upolicy/types.h Source File</title>
+<title>upolicy: upolicy/types.h Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -47,8 +47,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="dirs.html"><span>Directories</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -70,15 +72,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>Globals</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="dir_d1f03d92f0ab8ef7af6ee9f7592bd550.html">upolicy</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">lib/c/include/upolicy/types.h</div>  </div>
+<div class="title">types.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* types.h</span>
+<a href="types_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* types.h</span>
 <a name="l00002"></a>00002 <span class="comment"> *</span>
 <a name="l00003"></a>00003 <span class="comment"> * Copyright (C) 2012 Stephan Peijnik &lt;stephan@peijnik.at&gt;</span>
 <a name="l00004"></a>00004 <span class="comment"> *</span>
@@ -106,42 +128,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00026"></a>00026 
 <a name="l00027"></a>00027 <span class="preprocessor">#include &lt;stdarg.h&gt;</span>
 <a name="l00028"></a>00028 
-<a name="l00029"></a>00029 <span class="keyword">typedef</span> <span class="keyword">enum</span> UP_EV_DECISION upolicy_decision; 
-<a name="l00034"></a>00034 <span class="keyword">enum</span> UPOLICY_LOG_LEVEL {
-<a name="l00035"></a>00035   UPOLICY_LOG_DEBUG, 
-<a name="l00036"></a>00036   UPOLICY_LOG_WARNING, 
-<a name="l00037"></a>00037   UPOLICY_LOG_ERROR, 
-<a name="l00038"></a>00038   __UPOLICY_LOG_MAX, 
-<a name="l00039"></a>00039 };
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041 <span class="keyword">typedef</span> void (*upolicy_log_handler)(<span class="keyword">enum</span> UPOLICY_LOG_LEVEL level,
-<a name="l00042"></a>00042     <span class="keyword">const</span> <span class="keywordtype">char</span> *file_name, <span class="keyword">const</span> <span class="keywordtype">char</span> *func_name, <span class="keywordtype">int</span> line_no, <span class="keyword">const</span> <span class="keywordtype">char</span> *fmt,
-<a name="l00043"></a>00043     va_list va);
-<a name="l00044"></a>00044 
-<a name="l00046"></a>00046 <span class="keyword">enum</span> UPOLICY_DEBUG_FLAGS {
-<a name="l00047"></a>00047   __UPOLICY_DEBUG_MIN,
-<a name="l00048"></a>00048   UPOLICY_DEBUG_CORE,
-<a name="l00049"></a>00049   UPOLICY_DEBUG_CONTEXT,
-<a name="l00050"></a>00050   UPOLICY_DEBUG_LIST,
-<a name="l00051"></a>00051   UPOLICY_DEBUG_NETLINK,
-<a name="l00052"></a>00052   UPOLICY_DEBUG_LIB,
-<a name="l00053"></a>00053   __UPOLICY_DEBUG_MAX
-<a name="l00054"></a>00054 };
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056 <span class="preprocessor">#define UPOLICY_DEBUG_FLAG_ALL (UPOLICY_DEBUG_FLAG(__UPOLICY_DEBUG_MAX) - 1)</span>
-<a name="l00057"></a>00057 <span class="preprocessor"></span><span class="preprocessor">#define __UPOLICY_DEBUG_FLAG(X) (1 &lt;&lt; X)</span>
-<a name="l00058"></a>00058 <span class="preprocessor"></span><span class="preprocessor">#define UPOLICY_DEBUG_FLAG(NAME) __UPOLICY_DEBUG_FLAG(UPOLICY_DEBUG_ ##NAME)</span>
-<a name="l00059"></a>00059 <span class="preprocessor"></span>
-<a name="l00060"></a>00060 <span class="preprocessor">#define UPOLICY_DEBUG_FLAG_DEFAULT 0</span>
-<a name="l00061"></a>00061 <span class="preprocessor"></span>
-<a name="l00062"></a>00062 <span class="preprocessor">#endif </span><span class="comment">/* UPOLICY_TYPES_H */</span>
+<a name="l00034"></a><a class="code" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b">00034</a> <span class="keyword">typedef</span> <span class="keyword">enum</span> UP_EV_DECISION <a class="code" href="group__Types.html#ga33c437d17bac909f9baf501b86db984b" title="upolicy event decision">upolicy_decision</a>; 
+<a name="l00039"></a><a class="code" href="group__Types.html#ga11c41f5deb22767e11b4e6b8e241d3e1">00039</a> <span class="keyword">enum</span> <a class="code" href="group__Types.html#ga11c41f5deb22767e11b4e6b8e241d3e1" title="Log levels.">UPOLICY_LOG_LEVEL</a> {
+<a name="l00040"></a><a class="code" href="group__Types.html#gga11c41f5deb22767e11b4e6b8e241d3e1a57e44c0913e0aa5fdfdd0111fad6da01">00040</a>   <a class="code" href="group__Types.html#gga11c41f5deb22767e11b4e6b8e241d3e1a57e44c0913e0aa5fdfdd0111fad6da01" title="debug log level">UPOLICY_LOG_DEBUG</a>, 
+<a name="l00041"></a><a class="code" href="group__Types.html#gga11c41f5deb22767e11b4e6b8e241d3e1a7dbd331ab98908566505d9b24669a0fc">00041</a>   <a class="code" href="group__Types.html#gga11c41f5deb22767e11b4e6b8e241d3e1a7dbd331ab98908566505d9b24669a0fc" title="warning log level">UPOLICY_LOG_WARNING</a>, 
+<a name="l00042"></a><a class="code" href="group__Types.html#gga11c41f5deb22767e11b4e6b8e241d3e1a700ab9be952fbb60f4837ab828998f44">00042</a>   <a class="code" href="group__Types.html#gga11c41f5deb22767e11b4e6b8e241d3e1a700ab9be952fbb60f4837ab828998f44" title="error log level">UPOLICY_LOG_ERROR</a>, 
+<a name="l00043"></a><a class="code" href="group__Types.html#gga11c41f5deb22767e11b4e6b8e241d3e1a4fa2cfd471931f56a7ee8050914732d6">00043</a>   <a class="code" href="group__Types.html#gga11c41f5deb22767e11b4e6b8e241d3e1a4fa2cfd471931f56a7ee8050914732d6" title="maximum log level value">__UPOLICY_LOG_MAX</a>, 
+<a name="l00044"></a>00044 };
+<a name="l00045"></a>00045 
+<a name="l00056"></a><a class="code" href="group__Types.html#ga21d904df3414059081cce7d89327c90b">00056</a> <span class="keyword">typedef</span> void (*<a class="code" href="group__Types.html#ga21d904df3414059081cce7d89327c90b" title="Log handler function pointer.">upolicy_log_handler</a>)(<span class="keyword">enum</span> <a class="code" href="group__Types.html#ga11c41f5deb22767e11b4e6b8e241d3e1" title="Log levels.">UPOLICY_LOG_LEVEL</a> level,
+<a name="l00057"></a>00057     <span class="keyword">const</span> <span class="keywordtype">char</span> *file_name, <span class="keyword">const</span> <span class="keywordtype">char</span> *func_name, <span class="keywordtype">int</span> line_no, <span class="keyword">const</span> <span class="keywordtype">char</span> *fmt,
+<a name="l00058"></a>00058     va_list va);
+<a name="l00059"></a>00059 
+<a name="l00061"></a><a class="code" href="group__Types.html#gae6e25992495793423678d7d43d3ef79f">00061</a> <span class="keyword">enum</span> <a class="code" href="group__Types.html#gae6e25992495793423678d7d43d3ef79f" title="debug flags">UPOLICY_DEBUG_FLAGS</a> {
+<a name="l00062"></a><a class="code" href="group__Types.html#ggae6e25992495793423678d7d43d3ef79fa7465663a24102db0ee48ee36ceadf8d6">00062</a>   <a class="code" href="group__Types.html#ggae6e25992495793423678d7d43d3ef79fa7465663a24102db0ee48ee36ceadf8d6" title="Minimum flag, always 0.">__UPOLICY_DEBUG_MIN</a>,   
+<a name="l00063"></a><a class="code" href="group__Types.html#ggae6e25992495793423678d7d43d3ef79fa126f4d4f61842c2a0b77218fab0a0252">00063</a>   <a class="code" href="group__Types.html#ggae6e25992495793423678d7d43d3ef79fa126f4d4f61842c2a0b77218fab0a0252" title="core debug messages">UPOLICY_DEBUG_CORE</a>,    
+<a name="l00064"></a><a class="code" href="group__Types.html#ggae6e25992495793423678d7d43d3ef79fab23987f030a6a3547d78d0f95d72891f">00064</a>   <a class="code" href="group__Types.html#ggae6e25992495793423678d7d43d3ef79fab23987f030a6a3547d78d0f95d72891f" title="context debug messages">UPOLICY_DEBUG_CONTEXT</a>, 
+<a name="l00065"></a><a class="code" href="group__Types.html#ggae6e25992495793423678d7d43d3ef79fa626e1daef560a4afa27bbe18094e4772">00065</a>   <a class="code" href="group__Types.html#ggae6e25992495793423678d7d43d3ef79fa626e1daef560a4afa27bbe18094e4772" title="list debug messages">UPOLICY_DEBUG_LIST</a>,    
+<a name="l00066"></a><a class="code" href="group__Types.html#ggae6e25992495793423678d7d43d3ef79fac6d595be9322f5454ca3211d59aa9bfc">00066</a>   <a class="code" href="group__Types.html#ggae6e25992495793423678d7d43d3ef79fac6d595be9322f5454ca3211d59aa9bfc" title="netlink debug messages">UPOLICY_DEBUG_NETLINK</a>, 
+<a name="l00067"></a><a class="code" href="group__Types.html#ggae6e25992495793423678d7d43d3ef79faa484fb134fde8056b3dc092215e22271">00067</a>   <a class="code" href="group__Types.html#ggae6e25992495793423678d7d43d3ef79faa484fb134fde8056b3dc092215e22271" title="library (misc) debug messages">UPOLICY_DEBUG_LIB</a>,     
+<a name="l00068"></a><a class="code" href="group__Types.html#ggae6e25992495793423678d7d43d3ef79fa0edeafa84adc525fd2a78282baf3e950">00068</a>   <a class="code" href="group__Types.html#ggae6e25992495793423678d7d43d3ef79fa0edeafa84adc525fd2a78282baf3e950" title="Maximum flag (plus 1)">__UPOLICY_DEBUG_MAX</a>,   
+<a name="l00069"></a>00069 };
+<a name="l00070"></a>00070 
+<a name="l00074"></a><a class="code" href="group__Types.html#ga0445c6f560c78065e4072e14e0f0df18">00074</a> <span class="preprocessor">#define UPOLICY_DEBUG_FLAG_ALL (UPOLICY_DEBUG_FLAG(__UPOLICY_DEBUG_MAX) - 1)</span>
+<a name="l00075"></a>00075 <span class="preprocessor"></span>
+<a name="l00081"></a><a class="code" href="group__Types.html#ga10fd06b8dcb4c93fa10aac50f8d54493">00081</a> <span class="preprocessor">#define __UPOLICY_DEBUG_FLAG(X) (1 &lt;&lt; X)</span>
+<a name="l00082"></a>00082 <span class="preprocessor"></span>
+<a name="l00089"></a><a class="code" href="group__Types.html#gac9e14b989f05dda8dbab0e115fbd42a1">00089</a> <span class="preprocessor">#define UPOLICY_DEBUG_FLAG(NAME) __UPOLICY_DEBUG_FLAG(UPOLICY_DEBUG_ ##NAME)</span>
+<a name="l00090"></a>00090 <span class="preprocessor"></span>
+<a name="l00094"></a><a class="code" href="group__Types.html#ga81e2bf18308d621304e9beb171adb552">00094</a> <span class="preprocessor">#define UPOLICY_DEBUG_FLAG_DEFAULT 0</span>
+<a name="l00095"></a>00095 <span class="preprocessor"></span>
+<a name="l00100"></a>00100 <span class="preprocessor">#endif </span><span class="comment">/* UPOLICY_TYPES_H */</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -153,7 +177,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 8 2012 15:32:44 for upolicy by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 9 2012 10:49:34 for upolicy by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

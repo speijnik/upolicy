@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>upolicy: lib/c/include/upolicy/list.h Source File</title>
+<title>upolicy: upolicy/list.h Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -47,8 +47,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="dirs.html"><span>Directories</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -70,15 +72,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>Globals</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Defines</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="dir_d1f03d92f0ab8ef7af6ee9f7592bd550.html">upolicy</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">lib/c/include/upolicy/list.h</div>  </div>
+<div class="title">list.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* list.h</span>
+<a href="list_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/* list.h</span>
 <a name="l00002"></a>00002 <span class="comment"> *</span>
 <a name="l00003"></a>00003 <span class="comment"> * Copyright (C) 2012 Stephan Peijnik &lt;stephan@peijnik.at&gt;</span>
 <a name="l00004"></a>00004 <span class="comment"> *</span>
@@ -100,99 +122,99 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00020"></a>00020 <span class="preprocessor">#ifndef UPOLICY_LIST_H</span>
 <a name="l00021"></a>00021 <span class="preprocessor"></span><span class="preprocessor">#define UPOLICY_LIST_H</span>
 <a name="l00022"></a>00022 <span class="preprocessor"></span>
-<a name="l00023"></a>00023 <span class="preprocessor">#ifndef NULL</span>
-<a name="l00024"></a>00024 <span class="preprocessor"></span><span class="preprocessor">#define NULL (void*)0</span>
-<a name="l00025"></a>00025 <span class="preprocessor"></span><span class="preprocessor">#endif </span><span class="comment">/* NULL */</span>
-<a name="l00026"></a>00026 
-<a name="l00030"></a><a class="code" href="structlist__entry.html">00030</a> <span class="keyword">struct </span><a class="code" href="structlist__entry.html">list_entry</a> {
-<a name="l00031"></a><a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9">00031</a>   <span class="keyword">struct </span><a class="code" href="structlist__entry.html">list_entry</a> *<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9">next</a>; 
-<a name="l00032"></a><a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85">00032</a>   <span class="keyword">struct </span><a class="code" href="structlist__entry.html">list_entry</a> *<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85">prev</a>; 
-<a name="l00033"></a>00033 };
-<a name="l00034"></a>00034 
-<a name="l00038"></a><a class="code" href="structlist.html">00038</a> <span class="keyword">struct </span><a class="code" href="structlist.html">list</a> {
-<a name="l00039"></a><a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296">00039</a>   <span class="keyword">struct </span><a class="code" href="structlist__entry.html">list_entry</a> *<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296">head</a>; 
-<a name="l00040"></a><a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be">00040</a>   <span class="keyword">struct </span><a class="code" href="structlist__entry.html">list_entry</a> *<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be">tail</a>; 
-<a name="l00041"></a>00041 };
-<a name="l00042"></a>00042 
-<a name="l00047"></a>00047 <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> list_init(<span class="keyword">struct</span> <a class="code" href="structlist.html">list</a> *<a class="code" href="structlist.html">list</a>) {
-<a name="l00048"></a>00048   list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296">head</a> = list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be">tail</a> = NULL;
-<a name="l00049"></a>00049 }
-<a name="l00050"></a>00050 
-<a name="l00056"></a>00056 <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> list_prepend(<span class="keyword">struct</span> <a class="code" href="structlist.html">list</a> *<a class="code" href="structlist.html">list</a>, <span class="keyword">struct</span> <a class="code" href="structlist__entry.html">list_entry</a> *entry) {
-<a name="l00057"></a>00057   <span class="keywordflow">if</span> (list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296">head</a> == NULL) {
-<a name="l00058"></a>00058     list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296">head</a> = list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be">tail</a> = entry;
-<a name="l00059"></a>00059     entry-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85">prev</a> = NULL;
-<a name="l00060"></a>00060     entry-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9">next</a> = NULL;
-<a name="l00061"></a>00061   } <span class="keywordflow">else</span> {
-<a name="l00062"></a>00062     list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296">head</a>-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85">prev</a> = entry;
-<a name="l00063"></a>00063     entry-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9">next</a> = list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296">head</a>;
-<a name="l00064"></a>00064     entry-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85">prev</a> = NULL;
-<a name="l00065"></a>00065     list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296">head</a> = entry;
-<a name="l00066"></a>00066   }
-<a name="l00067"></a>00067 }
-<a name="l00068"></a>00068 
-<a name="l00074"></a>00074 <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> list_append(<span class="keyword">struct</span> list *list, <span class="keyword">struct</span> <a class="code" href="structlist__entry.html">list_entry</a> *entry) {
-<a name="l00075"></a>00075   <span class="keywordflow">if</span> (list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296">head</a> == NULL) {
-<a name="l00076"></a>00076     list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296">head</a> = list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be">tail</a> = entry;
-<a name="l00077"></a>00077     entry-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85">prev</a> = NULL;
-<a name="l00078"></a>00078     entry-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9">next</a> = NULL;
-<a name="l00079"></a>00079   } <span class="keywordflow">else</span> {
-<a name="l00080"></a>00080     list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be">tail</a>-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9">next</a> = entry;
-<a name="l00081"></a>00081     entry-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85">prev</a> = list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be">tail</a>;
-<a name="l00082"></a>00082     entry-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9">next</a> = NULL;
-<a name="l00083"></a>00083     list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be">tail</a> = entry;
-<a name="l00084"></a>00084   }
-<a name="l00085"></a>00085 }
-<a name="l00086"></a>00086 
-<a name="l00092"></a>00092 <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> list_remove(<span class="keyword">struct</span> list *list, <span class="keyword">struct</span> <a class="code" href="structlist__entry.html">list_entry</a> *entry) {
-<a name="l00093"></a>00093   <span class="keywordflow">if</span> (list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296">head</a> == entry &amp;&amp; list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be">tail</a> == entry) {
-<a name="l00094"></a>00094     list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296">head</a> = list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be">tail</a> = NULL;
-<a name="l00095"></a>00095   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296">head</a> == entry) {
-<a name="l00096"></a>00096     list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296">head</a> = entry-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9">next</a>;
-<a name="l00097"></a>00097 
-<a name="l00098"></a>00098     <span class="keywordflow">if</span> (entry-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9">next</a> != NULL) {
-<a name="l00099"></a>00099       entry-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9">next</a>-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85">prev</a> = NULL;
-<a name="l00100"></a>00100     }
-<a name="l00101"></a>00101   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be">tail</a> == entry) {
-<a name="l00102"></a>00102     list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be">tail</a> = entry-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85">prev</a>;
-<a name="l00103"></a>00103 
-<a name="l00104"></a>00104     <span class="keywordflow">if</span> (entry-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85">prev</a> != NULL) {
-<a name="l00105"></a>00105       entry-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85">prev</a>-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9">next</a> = NULL;
-<a name="l00106"></a>00106     }
-<a name="l00107"></a>00107   } <span class="keywordflow">else</span> {
-<a name="l00108"></a>00108     entry-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85">prev</a>-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9">next</a> = entry-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9">next</a>;
-<a name="l00109"></a>00109     entry-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9">next</a>-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85">prev</a> = entry-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85">prev</a>;
-<a name="l00110"></a>00110   }
-<a name="l00111"></a>00111 }
-<a name="l00112"></a>00112 
-<a name="l00119"></a>00119 <span class="preprocessor">#define list_foreach(list, entry) \</span>
-<a name="l00120"></a>00120 <span class="preprocessor">    for(entry = (list)-&gt;head; entry != NULL; entry = (entry)-&gt;next)</span>
-<a name="l00121"></a>00121 <span class="preprocessor"></span>
-<a name="l00128"></a>00128 <span class="preprocessor">#define list_foreach_safe(list, entry_a, entry_b) \</span>
-<a name="l00129"></a>00129 <span class="preprocessor">    for(entry_a = (list)-&gt;head, entry_b = (entry_a) ? (entry_a)-&gt;next : NULL; \</span>
-<a name="l00130"></a>00130 <span class="preprocessor">        entry_a != NULL; \</span>
-<a name="l00131"></a>00131 <span class="preprocessor">        entry_a = entry_b, entry_b = (entry_b) ? (entry_b)-&gt;next : NULL)</span>
-<a name="l00132"></a>00132 <span class="preprocessor"></span>
-<a name="l00136"></a>00136 <span class="preprocessor">#define LIST_INITIALIZER { .head = NULL, .tail = NULL }</span>
-<a name="l00137"></a>00137 <span class="preprocessor"></span>
-<a name="l00138"></a>00138 <span class="preprocessor">#if __GNUC__ &gt;= 4</span>
-<a name="l00139"></a>00139 <span class="preprocessor"></span><span class="preprocessor">#ifndef offsetof</span>
-<a name="l00140"></a>00140 <span class="preprocessor"></span><span class="preprocessor">#define offsetof(T, m) __builtin_offsetof(T, m)</span>
-<a name="l00141"></a>00141 <span class="preprocessor"></span><span class="preprocessor">#endif </span><span class="comment">/* offsetof */</span>
-<a name="l00142"></a>00142 <span class="preprocessor">#else</span>
-<a name="l00143"></a>00143 <span class="preprocessor"></span><span class="preprocessor">#error &quot;GCC too old, no offsetof support.&quot;</span>
-<a name="l00144"></a>00144 <span class="preprocessor"></span><span class="preprocessor">#endif </span><span class="comment">/* __GNUC__ &gt;= 4 */</span>
-<a name="l00145"></a>00145 
-<a name="l00153"></a>00153 <span class="preprocessor">#define list_entry(entry, type, member) (type *)((void*)entry - offsetof(type, member))</span>
-<a name="l00154"></a>00154 <span class="preprocessor"></span>
-<a name="l00155"></a>00155 <span class="preprocessor">#endif </span><span class="comment">/* UPOLICY_LIST_H */</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#ifndef NULL</span>
+<a name="l00029"></a><a class="code" href="group__Misc.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">00029</a> <span class="preprocessor"></span><span class="preprocessor">#define NULL (void*)0</span>
+<a name="l00030"></a>00030 <span class="preprocessor"></span><span class="preprocessor">#endif </span><span class="comment">/* NULL */</span>
+<a name="l00031"></a>00031 
+<a name="l00035"></a><a class="code" href="structlist__entry.html">00035</a> <span class="keyword">struct </span><a class="code" href="structlist__entry.html" title="Structure holding a list entry.">list_entry</a> {
+<a name="l00036"></a><a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9">00036</a>   <span class="keyword">struct </span><a class="code" href="structlist__entry.html" title="Structure holding a list entry.">list_entry</a> *<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9" title="next pointer">next</a>; 
+<a name="l00037"></a><a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85">00037</a>   <span class="keyword">struct </span><a class="code" href="structlist__entry.html" title="Structure holding a list entry.">list_entry</a> *<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85" title="prev pointer">prev</a>; 
+<a name="l00038"></a>00038 };
+<a name="l00039"></a>00039 
+<a name="l00043"></a><a class="code" href="structlist.html">00043</a> <span class="keyword">struct </span><a class="code" href="structlist.html" title="Structure holding a list head.">list</a> {
+<a name="l00044"></a><a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296">00044</a>   <span class="keyword">struct </span><a class="code" href="structlist__entry.html" title="Structure holding a list entry.">list_entry</a> *<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296" title="head of the list">head</a>; 
+<a name="l00045"></a><a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be">00045</a>   <span class="keyword">struct </span><a class="code" href="structlist__entry.html" title="Structure holding a list entry.">list_entry</a> *<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be" title="tail of the list">tail</a>; 
+<a name="l00046"></a>00046 };
+<a name="l00047"></a>00047 
+<a name="l00055"></a><a class="code" href="group__Misc.html#gad5c7b1c6657cf20aadbcecc93925f838">00055</a> <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="group__Misc.html#gad5c7b1c6657cf20aadbcecc93925f838" title="Initialize list.">list_init</a>(<span class="keyword">struct</span> <a class="code" href="structlist.html" title="Structure holding a list head.">list</a> *<a class="code" href="structlist.html" title="Structure holding a list head.">list</a>) {
+<a name="l00056"></a>00056   list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296" title="head of the list">head</a> = list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be" title="tail of the list">tail</a> = <a class="code" href="group__Misc.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00057"></a>00057 }
+<a name="l00058"></a>00058 
+<a name="l00064"></a><a class="code" href="group__Misc.html#ga1793c4d5bce9905416a08b4116fb322b">00064</a> <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="group__Misc.html#ga1793c4d5bce9905416a08b4116fb322b" title="Prepend entry to list.">list_prepend</a>(<span class="keyword">struct</span> <a class="code" href="structlist.html" title="Structure holding a list head.">list</a> *<a class="code" href="structlist.html" title="Structure holding a list head.">list</a>, <span class="keyword">struct</span> <a class="code" href="structlist__entry.html" title="Structure holding a list entry.">list_entry</a> *entry) {
+<a name="l00065"></a>00065   <span class="keywordflow">if</span> (list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296" title="head of the list">head</a> == <a class="code" href="group__Misc.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {
+<a name="l00066"></a>00066     list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296" title="head of the list">head</a> = list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be" title="tail of the list">tail</a> = entry;
+<a name="l00067"></a>00067     entry-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85" title="prev pointer">prev</a> = <a class="code" href="group__Misc.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00068"></a>00068     entry-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9" title="next pointer">next</a> = <a class="code" href="group__Misc.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00069"></a>00069   } <span class="keywordflow">else</span> {
+<a name="l00070"></a>00070     list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296" title="head of the list">head</a>-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85" title="prev pointer">prev</a> = entry;
+<a name="l00071"></a>00071     entry-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9" title="next pointer">next</a> = list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296" title="head of the list">head</a>;
+<a name="l00072"></a>00072     entry-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85" title="prev pointer">prev</a> = <a class="code" href="group__Misc.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00073"></a>00073     list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296" title="head of the list">head</a> = entry;
+<a name="l00074"></a>00074   }
+<a name="l00075"></a>00075 }
+<a name="l00076"></a>00076 
+<a name="l00082"></a><a class="code" href="group__Misc.html#ga262d42f4a3414bff0becdd4e277e9518">00082</a> <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="group__Misc.html#ga262d42f4a3414bff0becdd4e277e9518" title="Append entry to list.">list_append</a>(<span class="keyword">struct</span> <a class="code" href="structlist.html" title="Structure holding a list head.">list</a> *<a class="code" href="structlist.html" title="Structure holding a list head.">list</a>, <span class="keyword">struct</span> <a class="code" href="structlist__entry.html" title="Structure holding a list entry.">list_entry</a> *entry) {
+<a name="l00083"></a>00083   <span class="keywordflow">if</span> (list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296" title="head of the list">head</a> == <a class="code" href="group__Misc.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {
+<a name="l00084"></a>00084     list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296" title="head of the list">head</a> = list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be" title="tail of the list">tail</a> = entry;
+<a name="l00085"></a>00085     entry-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85" title="prev pointer">prev</a> = <a class="code" href="group__Misc.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00086"></a>00086     entry-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9" title="next pointer">next</a> = <a class="code" href="group__Misc.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00087"></a>00087   } <span class="keywordflow">else</span> {
+<a name="l00088"></a>00088     list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be" title="tail of the list">tail</a>-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9" title="next pointer">next</a> = entry;
+<a name="l00089"></a>00089     entry-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85" title="prev pointer">prev</a> = list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be" title="tail of the list">tail</a>;
+<a name="l00090"></a>00090     entry-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9" title="next pointer">next</a> = <a class="code" href="group__Misc.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00091"></a>00091     list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be" title="tail of the list">tail</a> = entry;
+<a name="l00092"></a>00092   }
+<a name="l00093"></a>00093 }
+<a name="l00094"></a>00094 
+<a name="l00100"></a><a class="code" href="group__Misc.html#gaad9681c4b906435c472cc1b5c65af5dd">00100</a> <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="group__Misc.html#gaad9681c4b906435c472cc1b5c65af5dd" title="Remove entry from list.">list_remove</a>(<span class="keyword">struct</span> <a class="code" href="structlist.html" title="Structure holding a list head.">list</a> *<a class="code" href="structlist.html" title="Structure holding a list head.">list</a>, <span class="keyword">struct</span> <a class="code" href="structlist__entry.html" title="Structure holding a list entry.">list_entry</a> *entry) {
+<a name="l00101"></a>00101   <span class="keywordflow">if</span> (list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296" title="head of the list">head</a> == entry &amp;&amp; list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be" title="tail of the list">tail</a> == entry) {
+<a name="l00102"></a>00102     list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296" title="head of the list">head</a> = list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be" title="tail of the list">tail</a> = <a class="code" href="group__Misc.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00103"></a>00103   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296" title="head of the list">head</a> == entry) {
+<a name="l00104"></a>00104     list-&gt;<a class="code" href="structlist.html#ad98153e8d06450eabdbaa623daf9d296" title="head of the list">head</a> = entry-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9" title="next pointer">next</a>;
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106     <span class="keywordflow">if</span> (entry-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9" title="next pointer">next</a> != <a class="code" href="group__Misc.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {
+<a name="l00107"></a>00107       entry-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9" title="next pointer">next</a>-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85" title="prev pointer">prev</a> = <a class="code" href="group__Misc.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00108"></a>00108     }
+<a name="l00109"></a>00109   } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be" title="tail of the list">tail</a> == entry) {
+<a name="l00110"></a>00110     list-&gt;<a class="code" href="structlist.html#a746d90915129debf352f3afc0ee897be" title="tail of the list">tail</a> = entry-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85" title="prev pointer">prev</a>;
+<a name="l00111"></a>00111 
+<a name="l00112"></a>00112     <span class="keywordflow">if</span> (entry-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85" title="prev pointer">prev</a> != <a class="code" href="group__Misc.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>) {
+<a name="l00113"></a>00113       entry-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85" title="prev pointer">prev</a>-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9" title="next pointer">next</a> = <a class="code" href="group__Misc.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a>;
+<a name="l00114"></a>00114     }
+<a name="l00115"></a>00115   } <span class="keywordflow">else</span> {
+<a name="l00116"></a>00116     entry-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85" title="prev pointer">prev</a>-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9" title="next pointer">next</a> = entry-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9" title="next pointer">next</a>;
+<a name="l00117"></a>00117     entry-&gt;<a class="code" href="structlist__entry.html#a0b1439db2d6f56fac7b7c87fb6261cb9" title="next pointer">next</a>-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85" title="prev pointer">prev</a> = entry-&gt;<a class="code" href="structlist__entry.html#aa400c402bee52d2ccf9cbf834276ce85" title="prev pointer">prev</a>;
+<a name="l00118"></a>00118   }
+<a name="l00119"></a>00119 }
+<a name="l00120"></a>00120 
+<a name="l00127"></a><a class="code" href="group__Misc.html#ga12fb2c3c53dead6d174b8826871f105c">00127</a> <span class="preprocessor">#define list_foreach(list, entry) \</span>
+<a name="l00128"></a>00128 <span class="preprocessor">    for(entry = (list)-&gt;head; entry != NULL; entry = (entry)-&gt;next)</span>
+<a name="l00129"></a>00129 <span class="preprocessor"></span>
+<a name="l00137"></a><a class="code" href="group__Misc.html#gab28802a83ad354eaea6d1166a208ca7b">00137</a> <span class="preprocessor">#define list_foreach_safe(list, entry_a, entry_b) \</span>
+<a name="l00138"></a>00138 <span class="preprocessor">    for(entry_a = (list)-&gt;head, entry_b = (entry_a) ? (entry_a)-&gt;next : NULL; \</span>
+<a name="l00139"></a>00139 <span class="preprocessor">        entry_a != NULL; \</span>
+<a name="l00140"></a>00140 <span class="preprocessor">        entry_a = entry_b, entry_b = (entry_b) ? (entry_b)-&gt;next : NULL)</span>
+<a name="l00141"></a>00141 <span class="preprocessor"></span>
+<a name="l00147"></a><a class="code" href="group__Misc.html#gab8b25b7e38f8383331b9ec1ca409d804">00147</a> <span class="preprocessor">#define LIST_INITIALIZER { .head = NULL, .tail = NULL }</span>
+<a name="l00148"></a>00148 <span class="preprocessor"></span>
+<a name="l00149"></a>00149 <span class="preprocessor">#if __GNUC__ &gt;= 4</span>
+<a name="l00150"></a>00150 <span class="preprocessor"></span><span class="preprocessor">#ifndef offsetof</span>
+<a name="l00151"></a>00151 <span class="preprocessor"></span><span class="preprocessor">#define offsetof(T, m) __builtin_offsetof(T, m)</span>
+<a name="l00152"></a>00152 <span class="preprocessor"></span><span class="preprocessor">#endif </span><span class="comment">/* offsetof */</span>
+<a name="l00153"></a>00153 <span class="preprocessor">#else </span><span class="comment">/* __GNUC__ &lt; 4 */</span>
+<a name="l00154"></a>00154 <span class="preprocessor">#error &quot;GCC too old, no offsetof support.&quot;</span>
+<a name="l00155"></a>00155 <span class="preprocessor"></span><span class="preprocessor">#endif </span><span class="comment">/* __GNUC__ &gt;= 4 */</span>
+<a name="l00156"></a>00156 
+<a name="l00165"></a><a class="code" href="group__Misc.html#ga724ddc266c6ca96c89f47f8fbd95018d">00165</a> <span class="preprocessor">#define list_entry(entry, type, member) (type *)((void*)entry - offsetof(type, member))</span>
+<a name="l00166"></a>00166 <span class="preprocessor"></span>
+<a name="l00171"></a>00171 <span class="preprocessor">#endif </span><span class="comment">/* UPOLICY_LIST_H */</span>
 </pre></div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -204,7 +226,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 8 2012 15:32:44 for upolicy by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 9 2012 10:49:34 for upolicy by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

@@ -47,8 +47,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="dirs.html"><span>Directories</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -79,25 +81,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
-<div class="title">upolicy_context Struct Reference</div>  </div>
+<div class="title">upolicy_context Struct Reference<div class="ingroups"><a class="el" href="group__Context.html">Context</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
 <!-- doxytag: class="upolicy_context" -->
-<p><code>#include &lt;<a class="el" href="context_8h_source.html">context.h</a>&gt;</code></p>
+<p>Struct holding context information.  
+ <a href="structupolicy__context.html#details">More...</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">up_ctx_id&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__context.html#ac4fb5d4894ce02a992ff01680e3c08ca">id</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">context ID  <a href="#ac4fb5d4894ce02a992ff01680e3c08ca"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">sem_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__context.html#afcfb19aae8254132c3c0cfa2d4e4f703">created_sem</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">semaphore used internally  <a href="#afcfb19aae8254132c3c0cfa2d4e4f703"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structupolicy__ops.html">upolicy_ops</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__context.html#a1559a3eeac08d570ba5b5cacd090f779">question_ops</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">question event operations  <a href="#a1559a3eeac08d570ba5b5cacd090f779"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structupolicy__ops.html">upolicy_ops</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__context.html#ad16c4512fe20357f42076d24e9cfa651">notify_ops</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">notify event operations  <a href="#ad16c4512fe20357f42076d24e9cfa651"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structlist__entry.html">list_entry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__context.html#ac840ed76938cfbafcd95265df2fbff5a">entry</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">list information  <a href="#ac840ed76938cfbafcd95265df2fbff5a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structupolicy__context.html#a6f61b2a7e4abe7cab9c4068b0b7cf966">user</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">user-definable data  <a href="#a6f61b2a7e4abe7cab9c4068b0b7cf966"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Struct holding context information </p>
+<div class="textblock"><p>Struct holding context information. </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00099">99</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00108">108</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 </div><hr/><h2>Field Documentation</h2>
 <a class="anchor" id="afcfb19aae8254132c3c0cfa2d4e4f703"></a><!-- doxytag: member="upolicy_context::created_sem" ref="afcfb19aae8254132c3c0cfa2d4e4f703" args="" -->
 <div class="memitem">
@@ -109,9 +118,10 @@ Data Fields</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>semaphore used internally </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00101">101</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00110">110</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -125,9 +135,10 @@ Data Fields</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>list information </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00104">104</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00113">113</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -141,9 +152,10 @@ Data Fields</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>context ID </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00100">100</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00109">109</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -157,9 +169,10 @@ Data Fields</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>notify event operations </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00103">103</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00112">112</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -173,9 +186,10 @@ Data Fields</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>question event operations </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00102">102</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00111">111</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
@@ -189,14 +203,15 @@ Data Fields</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
+
 <p>user-definable data </p>
 
-<p>Definition at line <a class="el" href="context_8h_source.html#l00105">105</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
+<p>Definition at line <a class="el" href="context_8h_source.html#l00114">114</a> of file <a class="el" href="context_8h_source.html">context.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>lib/c/include/upolicy/<a class="el" href="context_8h_source.html">context.h</a></li>
+<li>upolicy/<a class="el" href="context_8h_source.html">context.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- window showing the filter options -->
@@ -204,7 +219,7 @@ Data Fields</h2></td></tr>
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -216,7 +231,7 @@ Data Fields</h2></td></tr>
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 8 2012 15:32:44 for upolicy by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 9 2012 10:49:34 for upolicy by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>

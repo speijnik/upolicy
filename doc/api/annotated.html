@@ -47,8 +47,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="dirs.html"><span>Directories</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -81,11 +83,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock">Here are the data structures with brief descriptions:</div><table>
-  <tr><td class="indexkey"><a class="el" href="structlist.html">list</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="structlist__entry.html">list_entry</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="structupolicy__context.html">upolicy_context</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="structupolicy__event__info.html">upolicy_event_info</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><a class="el" href="structupolicy__ops.html">upolicy_ops</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey"><a class="el" href="structlist.html">list</a></td><td class="indexvalue">Structure holding a list head </td></tr>
+  <tr><td class="indexkey"><a class="el" href="structlist__entry.html">list_entry</a></td><td class="indexvalue">Structure holding a list entry </td></tr>
+  <tr><td class="indexkey"><a class="el" href="structupolicy__context.html">upolicy_context</a></td><td class="indexvalue">Struct holding context information </td></tr>
+  <tr><td class="indexkey"><a class="el" href="structupolicy__event__info.html">upolicy_event_info</a></td><td class="indexvalue">Event information passed to every event handler </td></tr>
+  <tr><td class="indexkey"><a class="el" href="structupolicy__ops.html">upolicy_ops</a></td><td class="indexvalue">Structure holding per-context callbacks </td></tr>
 </table>
 </div><!-- contents -->
 <!-- window showing the filter options -->
@@ -93,7 +95,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -105,7 +107,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 8 2012 15:32:44 for upolicy by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed May 9 2012 10:49:34 for upolicy by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.7.6.1
 </small></address>
