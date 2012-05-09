@@ -1,0 +1,1015 @@
+<h2>struct up_context - context information</h2>
+<b>struct up_context</b> {<br>
+&nbsp; &nbsp; <i>up_ctx_id</i> <b>id</b>;<br>
+&nbsp; &nbsp; <i>up_event_mask</i> <b>question_mask</b>;<br>
+&nbsp; &nbsp; <i>up_event_mask</i> <b>notify_mask</b>;<br>
+&nbsp; &nbsp; <i>up_event_mask</i> <b>combined_mask</b>;<br>
+&nbsp; &nbsp; <i>struct list_head</i> <b>tracees_list</b>;<br>
+&nbsp; &nbsp; <i>struct up_tracer *</i> <b>tracer</b>;<br>
+&nbsp; &nbsp; <i>struct list_head</i> <b>list</b>;<br>
+&nbsp; &nbsp; <i>rwlock_t</i> <b>tracees_rwlock</b>;<br>
+&nbsp; &nbsp; <i>atomic_t</i> <b>usage</b>;<br>
+};<br>
+<h3>Members</h3>
+<dl>
+<dt><b>id</b>
+<dd>Per-tracer context ID. Possible values: 1 to max(typeof(up_ctx_id))
+ID 0 is reserved.
+<dt><b>question_mask</b>
+<dd>Question mask
+<dt><b>notify_mask</b>
+<dd>Notify mask
+<dt><b>combined_mask</b>
+<dd>Logical OR of question_mask, notify_mask and parent
+combined_mask. This allows for fast checking if a given event
+needs to be handled at all, meaning that events which do not
+need to be handled are ignored early.
+<dt><b>tracees_list</b>
+<dd>Head of list of tracees
+<dt><b>tracer</b>
+<dd>Tracer this context belongs to
+<dt><b>list</b>
+<dd>List entry for use from within up_tracer
+<dt><b>tracees_rwlock</b>
+<dd>rwlock for tracees_list
+<dt><b>usage</b>
+<dd>Usage count
+</dl>
+<hr>
+<h2>up_context_alloc - Allocate and initialize context struct.</h2>
+<i>struct up_context*</i>
+<b>up_context_alloc</b>
+(<i>struct up_tracer *</i> <b>tracer</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>tracer</b>
+<dd>Tracer this new context belongs to.
+</dl>
+<hr>
+<h2>up_context_init - Initialize context struc.</h2>
+<i>void</i>
+<b>up_context_init</b>
+(<i>struct up_context *</i> <b>ctx</b>,
+<i>struct up_tracer *</i> <b>tracer</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>ctx</b>
+<dd>Context to initialize.
+<dt><b>tracer</b>
+<dd>Tracer this new context belongs to.
+</dl>
+<h3>Description</h3>
+<blockquote>
+This function MUST NOT be called after up_context_alloc. It exists for correct initialization
+of a tracer's NULL-context only.
+</blockquote>
+<hr>
+<h2>struct up_nlhdr - Common upolicy netlink header</h2>
+<b>struct up_nlhdr</b> {<br>
+&nbsp; &nbsp; <i>up_ctx_id</i> <b>context_id</b>;<br>
+&nbsp; &nbsp; <i>pid_t</i> <b>pid</b>;<br>
+&nbsp; &nbsp; <i>pid_t</i> <b>tid</b>;<br>
+};<br>
+<h3>Members</h3>
+<dl>
+<dt><b>context_id</b>
+<dd>Context ID
+<dt><b>pid</b>
+<dd>Process ID
+<dt><b>tid</b>
+<dd>Task ID
+</dl>
+<hr>
+<h2>enum UP_CMD</h2>
+<b>enum UP_CMD</b> {<br>
+ <b>UP_NLC_UNSPEC</b>,
+<br> <b>UP_NLC_INIT</b>,
+<br> <b>UP_NLC_CTX_CREATE</b>,
+<br> <b>UP_NLC_CTX_DESTROY</b>,
+<br> <b>UP_NLC_DECISION</b>,
+<br> <b>UP_NLC_QUESTION</b>,
+<br> <b>UP_NLC_NOTIFICATION</b>,
+<br> <b>__UP_NLC_MAX</b><br>};<br>
+<h3>Constants</h3>
+<dl>
+<dt><b>UP_NLC_UNSPEC</b>
+<dd>unspecified command
+<dt><b>UP_NLC_INIT</b>
+<dd>init command
+Does not require any netlink attributes
+<dt><b>UP_NLC_CTX_CREATE</b>
+<dd>context create command
+Requires the UP_NLA_NOTIFYMASK, UP_NLA_QUESTIONMASK and
+UP_NLA_UCONTEXT_ID attributes.
+<dt><b>UP_NLC_CTX_DESTROY</b>
+<dd>context destroy command
+<dt><b>UP_NLC_DECISION</b>
+<dd>event decision command.
+Requires the UP_NLA_DECISION attribute.
+<dt><b>UP_NLC_QUESTION</b>
+<dd>Question command (kernel to userspace)
+<dt><b>UP_NLC_NOTIFICATION</b>
+<dd>Notification command (kernel to userspace)
+<dt><b>__UP_NLC_MAX</b>
+<dd>Maximum command number plus 1
+</dl>
+<hr>
+<h2>enum UP_NLA</h2>
+<b>enum UP_NLA</b> {<br>
+ <b>UP_NLA_UNSPEC</b>,
+<br> <b>UP_NLA_EVENTMASK</b>,
+<br> <b>UP_NLA_NOTIFYMASK</b>,
+<br> <b>UP_NLA_EVENTNO</b>,
+<br> <b>UP_NLA_UCONTEXT_ID</b>,
+<br> <b>UP_NLA_DECISION</b>,
+<br> <b>UP_NLA_CLONE_FLAGS</b>,
+<br> <b>UP_NLA_SOCKET_REMOTE</b>,
+<br> <b>UP_NLA_SOCKET_LOCAL</b>,
+<br> <b>UP_NLA_PID</b>,
+<br> <b>UP_NLA_SIGNO</b>,
+<br> <b>UP_NLA_PATH</b>,
+<br> <b>UP_NLA_PTRACE_MODE</b>,
+<br> <b>__UP_NLA_MAX</b><br>};<br>
+<h3>Constants</h3>
+<dl>
+<dt><b>UP_NLA_UNSPEC</b>
+<dd>unspecified attribute
+<dt><b>UP_NLA_EVENTMASK</b>
+<dd>event mask (uint64)
+<dt><b>UP_NLA_NOTIFYMASK</b>
+<dd>notify mask (uint64)
+<dt><b>UP_NLA_EVENTNO</b>
+<dd>event number (uint16)
+<dt><b>UP_NLA_UCONTEXT_ID</b>
+<dd>userspace-provided context ID (uint16)
+<dt><b>UP_NLA_DECISION</b>
+<dd>decision (uint8)
+<dt><b>UP_NLA_CLONE_FLAGS</b>
+<dd>clone flags (uint64)
+<dt><b>UP_NLA_SOCKET_REMOTE</b>
+<dd>remote socket (container)
+<dt><b>UP_NLA_SOCKET_LOCAL</b>
+<dd>local socket (container)
+<dt><b>UP_NLA_PID</b>
+<dd>(target) process ID
+<dt><b>UP_NLA_SIGNO</b>
+<dd>signal number
+<dt><b>UP_NLA_PATH</b>
+<dd>path
+<dt><b>UP_NLA_PTRACE_MODE</b>
+<dd>ptrace mode
+<dt><b>__UP_NLA_MAX</b>
+<dd>maximum attribute number plus 1
+</dl>
+<hr>
+<h2>enum UP_NLA_SOCK</h2>
+<b>enum UP_NLA_SOCK</b> {<br>
+ <b>UP_NLA_SOCKET_UNSPEC</b>,
+<br> <b>UP_NLA_SOCKET_FAMILY</b>,
+<br> <b>UP_NLA_SOCKET_TYPE</b>,
+<br> <b>UP_NLA_SOCKET_PROTO</b>,
+<br> <b>UP_NLA_SOCKET_ADDRLEN</b>,
+<br> <b>UP_NLA_SOCKET_INADDR</b>,
+<br> <b>UP_NLA_SOCKET_IN6ADDR</b>,
+<br> <b>UP_NLA_SOCKET_UNADDR</b>,
+<br> <b>UP_NLA_SOCKET_NLADDR</b>,
+<br> <b>UP_NLA_SOCKET_BACKLOG</b>,
+<br> <b>__UP_NLA_SOCKET_MAX</b><br>};<br>
+<h3>Constants</h3>
+<dl>
+<dt><b>UP_NLA_SOCKET_UNSPEC</b>
+<dd>unspecified attribute
+<dt><b>UP_NLA_SOCKET_FAMILY</b>
+<dd>socket family (uint32)
+<dt><b>UP_NLA_SOCKET_TYPE</b>
+<dd>socket type (uint32)
+<dt><b>UP_NLA_SOCKET_PROTO</b>
+<dd>socket protocol (uint32)
+<dt><b>UP_NLA_SOCKET_ADDRLEN</b>
+<dd>address length (uint32)
+<dt><b>UP_NLA_SOCKET_INADDR</b>
+<dd>IPv4 address (struct sockaddr_in)
+<dt><b>UP_NLA_SOCKET_IN6ADDR</b>
+<dd>IPv6 address (struct sockaddr_in6)
+<dt><b>UP_NLA_SOCKET_UNADDR</b>
+<dd>Unix socket address (struct sockaddr_un)
+<dt><b>UP_NLA_SOCKET_NLADDR</b>
+<dd>Netlink address (struct sockaddr_nl)
+<dt><b>UP_NLA_SOCKET_BACKLOG</b>
+<dd><b>listen</b> backlog value (uint32)
+<dt><b>__UP_NLA_SOCKET_MAX</b>
+<dd>Maximum attribute number plus 1
+</dl>
+<hr>
+<h2>enum UP_EV_DECISION</h2>
+<b>enum UP_EV_DECISION</b> {<br>
+ <b>UP_DECIDE_KILL</b>,
+<br> <b>UP_DECIDE_ALLOW</b>,
+<br> <b>UP_DECIDE_DENY</b>,
+<br> <b>UP_DECIDE_POSTPONE</b>,
+<br> <b>__UP_DECISION_MAX</b><br>};<br>
+<h3>Constants</h3>
+<dl>
+<dt><b>UP_DECIDE_KILL</b>
+<dd>deny call and kill tracee
+<dt><b>UP_DECIDE_ALLOW</b>
+<dd>allow call
+<dt><b>UP_DECIDE_DENY</b>
+<dd>deny call
+<dt><b>UP_DECIDE_POSTPONE</b>
+<dd>decision postponed.
+This value should NEVER be passed to the kernel and is reserved for use
+in the userspace library.
+<dt><b>__UP_DECISION_MAX</b>
+<dd>maximum decision value plus 1
+</dl>
+<hr>
+<h2>struct up_socket - Per-tracer socket information</h2>
+<b>struct up_socket</b> {<br>
+&nbsp; &nbsp; <i>struct list_head</i> <b>question_list</b>;<br>
+&nbsp; &nbsp; <i>rwlock_t</i> <b>question_rwlock</b>;<br>
+&nbsp; &nbsp; <i>u32</i> <b>nlpid</b>;<br>
+&nbsp; &nbsp; <i>struct net *</i> <b>net_ns</b>;<br>
+};<br>
+<h3>Members</h3>
+<dl>
+<dt><b>question_list</b>
+<dd>Head of question list
+<dt><b>question_rwlock</b>
+<dd>rwlock protecting question_list
+<dt><b>nlpid</b>
+<dd>Netlink PID of userspace application
+<dt><b>net_ns</b>
+<dd>Network namespace of tracer
+</dl>
+<hr>
+<h2>struct up_nl_response - netlink response message</h2>
+<b>struct up_nl_response</b> {<br>
+&nbsp; &nbsp; <i>struct sk_buff *</i> <b>skb</b>;<br>
+&nbsp; &nbsp; <i>struct genl_info</i> <b>info</b>;<br>
+};<br>
+<h3>Members</h3>
+<dl>
+<dt><b>skb</b>
+<dd>sk_buff of response
+<dt><b>info</b>
+<dd>generic netlink info
+</dl>
+<hr>
+<h2>up_netlink_init - Netlink initialization.</h2>
+<i>int</i>
+<b>up_netlink_init</b>
+(<i></i> <b>void</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>void</b>
+<dd>no arguments
+</dl>
+<hr>
+<h2>up_netlink_cleanup - Netlink cleanup.</h2>
+<i>void</i>
+<b>up_netlink_cleanup</b>
+(<i></i> <b>void</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>void</b>
+<dd>no arguments
+</dl>
+<hr>
+<h2>up_socket_init - Socket initialization.</h2>
+<i>void</i>
+<b>up_socket_init</b>
+(<i>struct up_socket *</i> <b>socket</b>,
+<i>u32</i> <b>nlpid</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>socket</b>
+<dd>Socket
+<dt><b>nlpid</b>
+<dd>Netlink PID
+</dl>
+<hr>
+<h2>up_socket_cleanup - Socket cleanup.</h2>
+<i>void</i>
+<b>up_socket_cleanup</b>
+(<i>struct up_socket *</i> <b>socket</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>socket</b>
+<dd>Socket
+</dl>
+<hr>
+<h2>up_nlmsg_prepare - Prepare netlink message.</h2>
+<i>struct sk_buff *</i>
+<b>up_nlmsg_prepare</b>
+(<i>u32</i> <b>nlpid</b>,
+<i>enum UP_CMD</i> <b>cmd</b>,
+<i>struct up_nlhdr **</i> <b>nlhdr</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>nlpid</b>
+<dd>Netlink PID of destination
+<dt><b>cmd</b>
+<dd>Command
+<dt><b>nlhdr</b>
+<dd>Pointer to up_nlhdr pointer.
+</dl>
+<h3>Description</h3>
+<blockquote>
+<p>
+On success returns pointer to sk_buff of new message.
+It is up to the caller to fill nlhdr with correct values.
+</blockquote>
+<hr>
+<h2>up_nlmsg_send - Send netlink message.</h2>
+<i>int</i>
+<b>up_nlmsg_send</b>
+(<i>struct sk_buff *</i> <b>skb</b>,
+<i>struct up_tracer *</i> <b>tracer</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>skb</b>
+<dd>Buffer containing full message as allocated by up_nlmsg_prepare.
+<dt><b>tracer</b>
+<dd>Tracer the message will be sent to.
+</dl>
+<h3>Description</h3>
+<blockquote>
+<p>
+Returns value &gt;= 0 on success, &lt; 0 on error.
+</blockquote>
+<hr>
+<h2>__up_nlevent_prepare - Prepare netlink event</h2>
+<i>struct sk_buff *</i>
+<b>__up_nlevent_prepare</b>
+(<i>enum UP_EVENT</i> <b>ev</b>,
+<i>struct up_nlhdr **</i> <b>nlhdr</b>,
+<i>enum UP_CMD</i> <b>cmd</b>,
+<i>u32</i> <b>nlpid</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>ev</b>
+<dd>Event number
+<dt><b>nlhdr</b>
+<dd>Pointer to up_nlhdr pointer
+<dt><b>cmd</b>
+<dd>Command
+<dt><b>nlpid</b>
+<dd>Netlink PID of destination
+</dl>
+<hr>
+<h2>up_nlmsg_headers - Get pointers to nlmsg headers from sk_buff struct</h2>
+<i>int</i>
+<b>up_nlmsg_headers</b>
+(<i>struct sk_buff *</i> <b>skb</b>,
+<i>struct nlmsghdr **</i> <b>nlhdr</b>,
+<i>struct genlmsghdr **</i> <b>genlhdr</b>,
+<i>struct up_nlhdr **</i> <b>uphdr</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>skb</b>
+<dd>sk_buff struct to extract headers from
+<dt><b>nlhdr</b>
+<dd>netlink header
+<dt><b>genlhdr</b>
+<dd>generic netlink header
+<dt><b>uphdr</b>
+<dd>upolicy netlink header
+</dl>
+<hr>
+<h2>__up_nlevent_send - Send netlink event to all tracers.</h2>
+<i>enum UP_EV_DECISION</i>
+<b>__up_nlevent_send</b>
+(<i>struct sk_buff *</i> <b>skb</b>,
+<i>struct up_tracee *</i> <b>tracee</b>,
+<i>enum UP_EVENT</i> <b>ev</b>,
+<i>struct up_nl_response *</i> <b>response</b>,
+<i>struct task_struct *</i> <b>tsk</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>skb</b>
+<dd>sk_buff as allocated with up_nlevent_prepare
+<dt><b>tracee</b>
+<dd>tracee that generated the event
+<dt><b>ev</b>
+<dd>Event
+<dt><b>response</b>
+<dd>Pointer to response struct. May be NULL if no response processing is
+required.
+<dt><b>tsk</b>
+<dd>Task that generated the event.
+</dl>
+<hr>
+<h2>__up_nlevent_send_single - Send netlink event to a single tracer.</h2>
+<i>enum UP_EV_DECISION</i>
+<b>__up_nlevent_send_single</b>
+(<i>struct sk_buff *</i> <b>skb</b>,
+<i>struct up_tracee *</i> <b>tracee</b>,
+<i>enum UP_EVENT</i> <b>ev</b>,
+<i>struct up_nl_response *</i> <b>response</b>,
+<i>struct task_struct *</i> <b>tsk</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>skb</b>
+<dd>sk_buff as allocated with up_nlevent_prepare
+<dt><b>tracee</b>
+<dd>tracee that generated the event
+<dt><b>ev</b>
+<dd>Event
+<dt><b>response</b>
+<dd>Pointer to response struct. May be NULL if no response processing is
+required.
+<dt><b>tsk</b>
+<dd>Task that generated the event.
+</dl>
+<hr>
+<h2>up_nlevent_send_single - Send netlink event to a single tracer.</h2>
+<i>enum UP_EV_DECISION</i>
+<b>up_nlevent_send_single</b>
+(<i>struct sk_buff *</i> <b>skb</b>,
+<i>enum UP_EVENT</i> <b>ev</b>,
+<i>struct up_tracee *</i> <b>tracee</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>skb</b>
+<dd>sk_buff
+<dt><b>ev</b>
+<dd>Event
+<dt><b>tracee</b>
+<dd>tracee
+</dl>
+<h3>Description</h3>
+<blockquote>
+<p>
+This is a thin wrapper around __up_nlevent_send_single, which passes along all values and
+sets the tsk parameter to current.
+</blockquote>
+<hr>
+<h2>up_nlevent_send - Send netlink event to all tracers.</h2>
+<i>enum UP_EV_DECISION</i>
+<b>up_nlevent_send</b>
+(<i>struct sk_buff *</i> <b>skb</b>,
+<i>struct up_tracee *</i> <b>tracee</b>,
+<i>enum UP_EVENT</i> <b>ev</b>,
+<i>struct up_nl_response *</i> <b>response</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>skb</b>
+<dd>sk_buff
+<dt><b>tracee</b>
+<dd>tracee
+<dt><b>ev</b>
+<dd>event
+<dt><b>response</b>
+<dd>Pointer to struct up_nl_response
+</dl>
+<h3>Description</h3>
+<blockquote>
+<p>
+This is a thin wrapper around __up_nlevent_send, which passes along all values and
+sets the tsk parameter to current.
+</blockquote>
+<hr>
+<h2>__up_nlevent_send_simple - Send netlink event to all tracers.</h2>
+<i>enum UP_EV_DECISION</i>
+<b>__up_nlevent_send_simple</b>
+(<i>struct up_tracee *</i> <b>tracee</b>,
+<i>enum UP_EVENT</i> <b>ev</b>,
+<i>struct up_nl_response *</i> <b>response</b>,
+<i>struct task_struct *</i> <b>tsk</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>tracee</b>
+<dd>Tracee
+<dt><b>ev</b>
+<dd>Event
+<dt><b>response</b>
+<dd>Pointer to struct up_nl_response
+<dt><b>tsk</b>
+<dd>Task
+</dl>
+<h3>Description</h3>
+<blockquote>
+<p>
+This is a thin wrapper around __up_nlevent_send and __up_nlevent_prepare that should
+be used when no additional netlink attributes are used for the event.
+</blockquote>
+<hr>
+<h2>up_nlevent_send_simple - Send simple netlink event</h2>
+<i>enum UP_EV_DECISION</i>
+<b>up_nlevent_send_simple</b>
+(<i>struct up_tracee *</i> <b>tracee</b>,
+<i>enum UP_EVENT</i> <b>ev</b>,
+<i>struct up_nl_response *</i> <b>response</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>tracee</b>
+<dd>Tracee
+<dt><b>ev</b>
+<dd>Event
+<dt><b>response</b>
+<dd>Pointer to struct up_nl_response
+</dl>
+<hr>
+<h2>__up_nlevent_send_single_simple - Send a simple netlink event to a single tracer</h2>
+<i>enum UP_EV_DECISION</i>
+<b>__up_nlevent_send_single_simple</b>
+(<i>struct up_tracee *</i> <b>tracee</b>,
+<i>enum UP_EVENT</i> <b>ev</b>,
+<i>struct up_nl_response *</i> <b>response</b>,
+<i>struct task_struct *</i> <b>tsk</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>tracee</b>
+<dd>Tracee
+<dt><b>ev</b>
+<dd>Event
+<dt><b>response</b>
+<dd>Pointer to struct up_nl_response
+<dt><b>tsk</b>
+<dd>Task
+</dl>
+<hr>
+<h2>up_nlevent_send_single_simple - Send simple netlink event to a single tracer</h2>
+<i>enum UP_EV_DECISION</i>
+<b>up_nlevent_send_single_simple</b>
+(<i>struct up_tracee *</i> <b>tracee</b>,
+<i>enum UP_EVENT</i> <b>ev</b>,
+<i>struct up_nl_response *</i> <b>response</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>tracee</b>
+<dd>Tracee
+<dt><b>ev</b>
+<dd>Event
+<dt><b>response</b>
+<dd>Pointer to up_nl_response
+</dl>
+<hr>
+<h2>up_nl_response_free - free memory of struct up_nl_response members</h2>
+<i>void</i>
+<b>up_nl_response_free</b>
+(<i>struct up_nl_response *</i> <b>response</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>response</b>
+<dd>Pointer to struct up_nl_response
+</dl>
+<hr>
+<h2>struct up_tracee - Tracee information</h2>
+<b>struct up_tracee</b> {<br>
+&nbsp; &nbsp; <i>struct up_context *</i> <b>context</b>;<br>
+&nbsp; &nbsp; <i>struct up_tracer *</i> <b>tracer</b>;<br>
+&nbsp; &nbsp; <i>struct pid *</i> <b>tg_pid</b>;<br>
+&nbsp; &nbsp; <i>struct up_tracee *</i> <b>parent_tracee</b>;<br>
+&nbsp; &nbsp; <i>struct list_head</i> <b>list</b>;<br>
+&nbsp; &nbsp; <i>atomic_t</i> <b>usage</b>;<br>
+};<br>
+<h3>Members</h3>
+<dl>
+<dt><b>context</b>
+<dd>Context the tracee is executing inside
+<dt><b>tracer</b>
+<dd>Tracer responsible for this tracee
+<dt><b>tg_pid</b>
+<dd>ThreadGroup PID
+<dt><b>parent_tracee</b>
+<dd>Pointer to parent tracer's tracee
+<dt><b>list</b>
+<dd>List information. Used in up_context.tracees_list.
+<dt><b>usage</b>
+<dd>Reference count
+</dl>
+<hr>
+<h2>up_tracee_alloc - Allocates memory for a tracee struct.</h2>
+<i>struct up_tracee*</i>
+<b>up_tracee_alloc</b>
+(<i>gfp_t</i> <b>gfp</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>gfp</b>
+<dd>Allocation GFP type
+</dl>
+<hr>
+<h2>__up_tracee_put - Decrements usage count of tracee.</h2>
+<i>void</i>
+<b>__up_tracee_put</b>
+(<i>struct up_tracee *</i> <b>tracee</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>tracee</b>
+<dd>Tracee
+</dl>
+<hr>
+<h2>__up_tracee_get - Increment usage count of tracee and returns pointer to it.</h2>
+<i>struct up_tracee*</i>
+<b>__up_tracee_get</b>
+(<i>struct up_tracee *</i> <b>tracee</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>tracee</b>
+<dd>Tracee
+</dl>
+<h3>Description</h3>
+<blockquote>
+Is a no-op for tracee=NULL and returns NULL then.
+</blockquote>
+<hr>
+<h2>up_tracee_kill - Kill tracee</h2>
+<i>void</i>
+<b>up_tracee_kill</b>
+(<i>struct up_tracee *</i> <b>tracee</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>tracee</b>
+<dd>Tracee
+</dl>
+<hr>
+<h2>__up_tracee_validate - Validates the current tracee and fixes it up if needed. Returns 0 on success or error value on failure.</h2>
+<i>int</i>
+<b>__up_tracee_validate</b>
+(<i></i> <b>void</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>void</b>
+<dd>no arguments
+</dl>
+<h3>Description</h3>
+<blockquote>
+<p>
+When an error value is returned the calling function MUST free all
+memory it has potentially allocated before the call and return
+this function's return value.
+</blockquote>
+<hr>
+<h2>struct up_tracer - Tracer information</h2>
+<b>struct up_tracer</b> {<br>
+&nbsp; &nbsp; <i>struct list_head</i> <b>contexts_list</b>;<br>
+&nbsp; &nbsp; <i>up_ctx_id</i> <b>max_ctx_id</b>;<br>
+&nbsp; &nbsp; <i>struct up_context</i> <b>null_context</b>;<br>
+&nbsp; &nbsp; <i>struct up_socket</i> <b>socket</b>;<br>
+&nbsp; &nbsp; <i>struct pid_namespace *</i> <b>pid_ns</b>;<br>
+&nbsp; &nbsp; <i>rwlock_t</i> <b>contexts_rwlock</b>;<br>
+&nbsp; &nbsp; <i>atomic_t</i> <b>usage</b>;<br>
+&nbsp; &nbsp; <i>atomic_t</i> <b>tracee_count</b>;<br>
+};<br>
+<h3>Members</h3>
+<dl>
+<dt><b>contexts_list</b>
+<dd>List head of tracer's context list
+<dt><b>max_ctx_id</b>
+<dd>Current maximum context ID number
+<dt><b>null_context</b>
+<dd>NULL context
+<dt><b>socket</b>
+<dd>Socket information
+<dt><b>pid_ns</b>
+<dd>PID namespace the tracer executes in
+<dt><b>contexts_rwlock</b>
+<dd>rwlock protecting contexts_list
+<dt><b>usage</b>
+<dd>Reference count
+<dt><b>tracee_count</b>
+<dd>Number of active tracees
+</dl>
+<hr>
+<h2>up_tracer_alloc - Allocate and initialize up_tracer structure.</h2>
+<i>struct up_tracer*</i>
+<b>up_tracer_alloc</b>
+(<i>struct upolicy *</i> <b>up</b>,
+<i>gfp_t</i> <b>gfp</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>up</b>
+<dd>Pointer to upolicy struct containing this tracer.
+<dt><b>gfp</b>
+<dd>gfp_t used for allocation
+</dl>
+<hr>
+<h2>__up_tracer_get - Get reference to tracer struct.</h2>
+<i>struct up_tracer*</i>
+<b>__up_tracer_get</b>
+(<i>struct up_tracer *</i> <b>tracer</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>tracer</b>
+<dd>Pointer to tracer struct.
+</dl>
+<h3>Description</h3>
+<blockquote>
+<p>
+This function increments the tracer's usage count.
+</blockquote>
+<hr>
+<h2>__up_tracer_put - Decrement reference count of upolicy tracer.</h2>
+<i>void</i>
+<b>__up_tracer_put</b>
+(<i>struct up_tracer *</i> <b>tracer</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>tracer</b>
+<dd>Pointer to tracer struct
+</dl>
+<h3>Description</h3>
+<blockquote>
+<p>
+If the reference count reaches zero due to this call
+the tracer struct is free'd.
+</blockquote>
+<hr>
+<h2>up_tracer_attach_ctx - Attach context to tracer.</h2>
+<i>int</i>
+<b>up_tracer_attach_ctx</b>
+(<i>struct up_tracer *</i> <b>tracer</b>,
+<i>struct up_context *</i> <b>ctx</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>tracer</b>
+<dd>Pointer to tracer struct
+<dt><b>ctx</b>
+<dd>Pointer to context struct
+</dl>
+<hr>
+<h2>up_tracer_find_ctx - Lookup context by context id.</h2>
+<i>struct up_context*</i>
+<b>up_tracer_find_ctx</b>
+(<i>struct up_tracer *</i> <b>tracer</b>,
+<i>up_ctx_id</i> <b>ctx_id</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>tracer</b>
+<dd>Pointer to tracer struct
+<dt><b>ctx_id</b>
+<dd>Context ID
+</dl>
+<h3>Description</h3>
+<blockquote>
+<p>
+Returns NULL on error.
+</blockquote>
+<hr>
+<h2>up_tracer_detach_ctx - Detaches context from tracer.</h2>
+<i>void</i>
+<b>up_tracer_detach_ctx</b>
+(<i>struct up_tracer *</i> <b>tracer</b>,
+<i>struct up_context *</i> <b>ctx</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>tracer</b>
+<dd>Pointer to tracer struct
+<dt><b>ctx</b>
+<dd>Pointer to context struct
+</dl>
+<h3>Description</h3>
+<blockquote>
+<p>
+All tracees left in this context are killed by this function.
+</blockquote>
+<hr>
+<h2>up_tracer_detach_all - Detaches all contexts from the tracer.</h2>
+<i>void</i>
+<b>up_tracer_detach_all</b>
+(<i>struct up_tracer *</i> <b>tracer</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>tracer</b>
+<dd>Pointer to tracer struct
+</dl>
+<h3>Description</h3>
+<blockquote>
+<p>
+All tracees of the given tracer are killed by this function.
+</blockquote>
+<hr>
+<h2>enum UP_EVENT</h2>
+<b>enum UP_EVENT</b> {<br>
+ <b>_UPOLICY_EV_TRACEE_NEW</b>,
+<br> <b>UPOLICY_EV_LAST_UNBLOCKABLE_QUESTION</b>,
+<br> <b>_UPOLICY_EV_CONTEXT_CREATED</b>,
+<br> <b>_UPOLICY_EV_ALL_TRACEES_EXITED</b>,
+<br> <b>UPOLICY_EV_LAST_UNBLOCKABLE</b>,
+<br> <b>_UPOLICY_EV_CTX_ALL_TRACEES_EXITED</b>,
+<br> <b>UPOLICY_EV_LAST_NOTIFY_ONLY</b>,
+<br> <b>_UPOLICY_EV_TRACER_INIT</b>,
+<br> <b>_UPOLICY_EV_CLONE</b>,
+<br> <b>_UPOLICY_EV_OPEN</b>,
+<br> <b>_UPOLICY_EV_SYMLINK</b>,
+<br> <b>_UPOLICY_EV_SOCKET_ACCEPT</b>,
+<br> <b>_UPOLICY_EV_SOCKET_BIND</b>,
+<br> <b>_UPOLICY_EV_SOCKET_CONNECT</b>,
+<br> <b>_UPOLICY_EV_SOCKET_CREATE</b>,
+<br> <b>_UPOLICY_EV_SOCKET_LISTEN</b>,
+<br> <b>_UPOLICY_EV_UNIX_STREAM_CONNECT</b>,
+<br> <b>_UPOLICY_EV_KILL</b>,
+<br> <b>_UPOLICY_EV_EXEC</b>,
+<br> <b>_UPOLICY_EV_PTRACE_ATTACH</b>,
+<br> <b>__UPOLICY_EV_MAX</b><br>};<br>
+<h3>Constants</h3>
+<dl>
+<dt><b>_UPOLICY_EV_TRACEE_NEW</b>
+<dd>New tracee event
+<dt><b>UPOLICY_EV_LAST_UNBLOCKABLE_QUESTION</b>
+<dd>Last unblockable question
+<dt><b>_UPOLICY_EV_CONTEXT_CREATED</b>
+<dd>Context created notification
+<dt><b>_UPOLICY_EV_ALL_TRACEES_EXITED</b>
+<dd>All tracees exited notification
+<dt><b>UPOLICY_EV_LAST_UNBLOCKABLE</b>
+<dd>Last unblockable event.
+All events below can be subscribed to on a per-context basis.
+<dt><b>_UPOLICY_EV_CTX_ALL_TRACEES_EXITED</b>
+<dd>All tracees inside a context exited
+<dt><b>UPOLICY_EV_LAST_NOTIFY_ONLY</b>
+<dd>Last notification-only event
+<dt><b>_UPOLICY_EV_TRACER_INIT</b>
+<dd>Tracee wants to become tracer event
+<dt><b>_UPOLICY_EV_CLONE</b>
+<dd><b>clone</b> called event
+<dt><b>_UPOLICY_EV_OPEN</b>
+<dd><b>open</b> called event
+<dt><b>_UPOLICY_EV_SYMLINK</b>
+<dd>symlink creation event
+<dt><b>_UPOLICY_EV_SOCKET_ACCEPT</b>
+<dd><b>accept</b> called event
+<dt><b>_UPOLICY_EV_SOCKET_BIND</b>
+<dd><b>bind</b> called event
+<dt><b>_UPOLICY_EV_SOCKET_CONNECT</b>
+<dd><b>connect</b> called event
+<dt><b>_UPOLICY_EV_SOCKET_CREATE</b>
+<dd><b>socket</b> called event
+<dt><b>_UPOLICY_EV_SOCKET_LISTEN</b>
+<dd><b>listen</b> called event
+<dt><b>_UPOLICY_EV_UNIX_STREAM_CONNECT</b>
+<dd><b>connect</b> on Unix stream event
+<dt><b>_UPOLICY_EV_KILL</b>
+<dd>signal delivery event
+<dt><b>_UPOLICY_EV_EXEC</b>
+<dd>exec event
+<dt><b>_UPOLICY_EV_PTRACE_ATTACH</b>
+<dd>ptrace attach event
+<dt><b>__UPOLICY_EV_MAX</b>
+<dd>maximum event number plus 1
+</dl>
+<hr>
+<h2>upolicy_ev_flag - Event to event-flag conversion (for use with upolicy_event_mask_t). Note that events below UPOLICY_EV_FIRST_UNBLOCKABLE should never be converted to a flag. The C compiler should be issuing a warning in that case anyways.</h2>
+<i>__u64</i>
+<b>upolicy_ev_flag</b>
+(<i>enum UP_EVENT</i> <b>ev</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>ev</b>
+<dd>Event number
+</dl>
+<hr>
+<h2>enum UP_EVENT_TYPE</h2>
+<b>enum UP_EVENT_TYPE</b> {<br>
+ <b>UP_EV_TYPE_SKIP</b>,
+<br> <b>UP_EV_TYPE_QUESTION</b>,
+<br> <b>UP_EV_TYPE_NOTIFICATION</b><br>};<br>
+<h3>Constants</h3>
+<dl>
+<dt><b>UP_EV_TYPE_SKIP</b>
+<dd>skip event
+<dt><b>UP_EV_TYPE_QUESTION</b>
+<dd>question event
+<dt><b>UP_EV_TYPE_NOTIFICATION</b>
+<dd>notification event
+</dl>
+<hr>
+<h2>task_upolicy - Gets the pointer to a task's upolicy struct.</h2>
+<i></i>
+<b>task_upolicy</b>
+(<i></i> <b>task</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>task</b>
+<dd>Tstruct task_struct pointer
+</dl>
+<hr>
+<h2>current_upolicy - Gets the pointer to the current task's upolicy struct.</h2>
+<i></i>
+<b>current_upolicy</b>
+()
+<h3>Arguments</h3>
+<dl>
+</dl>
+<hr>
+<h2>cred_upolicy - Gets the pointer to a cred's upolicy struct.</h2>
+<i></i>
+<b>cred_upolicy</b>
+(<i></i> <b>cred</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>cred</b>
+<dd>struct cred pointer
+</dl>
+<hr>
+<h2>struct upolicy - Per-process upolicy information A pointer to this struct is present in cred.security for  each tracer and tracee.</h2>
+<b>struct upolicy</b> {<br>
+&nbsp; &nbsp; <i>struct up_tracer *</i> <b>tracer</b>;<br>
+&nbsp; &nbsp; <i>struct up_tracee *</i> <b>tracee</b>;<br>
+};<br>
+<h3>Members</h3>
+<dl>
+<dt><b>tracer</b>
+<dd>Tracer struct, non-NULL for all tracers
+<dt><b>tracee</b>
+<dd>Tracee struct, non-NULL for all tracees
+</dl>
+<hr>
+<h2>up_alloc - allocate struct upolicy</h2>
+<i>struct upolicy*</i>
+<b>up_alloc</b>
+(<i>gfp_t</i> <b>gfp</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>gfp</b>
+<dd>gfp
+</dl>
+<hr>
+<h2>up_free - free struct upolicy saved in struct cred</h2>
+<i>void</i>
+<b>up_free</b>
+(<i>struct cred *</i> <b>cred</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>cred</b>
+<dd>struct cred containing struct upolicy in security field
+</dl>
+<hr>
+<h2>up_copy - copy upolicy information from old credentials to new one</h2>
+<i>int</i>
+<b>up_copy</b>
+(<i>struct cred *</i> <b>new</b>,
+<i>const struct cred *</i> <b>old</b>,
+<i>gfp_t</i> <b>gfp</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>new</b>
+<dd>new credentials
+<dt><b>old</b>
+<dd>old credentials
+<dt><b>gfp</b>
+<dd>gfp
+</dl>
+<hr>
+<h2>up_same_context - Check if two tasks are in the same upolicy context, where src is assumed to be a parent of dest.</h2>
+<i>int</i>
+<b>up_same_context</b>
+(<i>struct upolicy *</i> <b>src</b>,
+<i>struct upolicy *</i> <b>dest</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>src</b>
+<dd>Source
+<dt><b>dest</b>
+<dd>Destination
+</dl>
+<hr>
+<h2>up_want_handle_event - Check if the current task needs the event to be handled</h2>
+<i>struct up_tracee *</i>
+<b>up_want_handle_event</b>
+(<i>enum UP_EVENT</i> <b>ev</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>ev</b>
+<dd>Event number
+</dl>
+<hr>
+<h2>enum UP_WORKER_ITEM_TYPE</h2>
+<b>enum UP_WORKER_ITEM_TYPE</b> {<br>
+ <b>UP_WORKER_EXIT</b>,
+<br> <b>UP_WORKER_ALL_TRACEES_EXITED</b>,
+<br> <b>UP_WORKER_CTX_ALL_TRACEES_EXITED</b>,
+<br> <b>__UP_WORKER_MAX</b><br>};<br>
+<h3>Constants</h3>
+<dl>
+<dt><b>UP_WORKER_EXIT</b>
+<dd>Exit item
+<dt><b>UP_WORKER_ALL_TRACEES_EXITED</b>
+<dd>All tracees exited item
+<dt><b>UP_WORKER_CTX_ALL_TRACEES_EXITED</b>
+<dd>All tracees of a context exited item
+<dt><b>__UP_WORKER_MAX</b>
+<dd>Maximum worker item type plus 1
+</dl>
+<hr>
+<h2>up_worker_add - Add item to worker thread</h2>
+<i>int</i>
+<b>up_worker_add</b>
+(<i>enum UP_WORKER_ITEM_TYPE</i> <b>type</b>,
+<i>void *</i> <b>data0</b>,
+<i>void *</i> <b>data1</b>,
+<i>gfp_t</i> <b>gfp</b>)
+<h3>Arguments</h3>
+<dl>
+<dt><b>type</b>
+<dd>Item type
+<dt><b>data0</b>
+<dd>first data field
+<dt><b>data1</b>
+<dd>second data field
+<dt><b>gfp</b>
+<dd>gfp
+</dl>
+<hr>
