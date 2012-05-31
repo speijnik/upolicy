@@ -1,0 +1,52 @@
+# kernel/Makefile.in
+#
+# Copyright (C) 2012 Stephan Peijnik <stephan@peijnik.at>
+#
+# This file is part of upolicy.
+#
+#  upolicy is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+#
+#  upolicy is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with upolicy.  If not, see <http://www.gnu.org/licenses/>.
+
+KDIR ?= @KDIR@
+PWD := $(shell pwd)
+
+EXTRA_CFLAGS := -I$(PWD)/include/ -Werror -Wall @UPOLICY_DEBUG@
+
+all: build
+
+build:
+	make -C $(KDIR) M=$(PWD) EXTRA_CFLAGS="$(EXTRA_CFLAGS)" modules
+	make -C $(PWD)/include
+
+modules_install: install
+
+install:
+	make -C $(PWD)/include install
+
+clean:
+	make -C $(KDIR) M=$(PWD) EXTRA_CFLAGS="$(EXTRA_CFLAGS)" clean
+	make -C $(PWD)/include clean
+
+maintainer-clean: clean
+	make -C $(PWD)/include maintainer-clean
+	rm -f Makefile
+
+distclean: clean
+	make -C $(PWD)/include distclean
+
+distdir:
+	cd include && make top_distdir=../$(top_distdir) \
+		distdir=../$(distdir)/include \
+		am__remove_distdir=$(am__remove_distdir) \
+		am__skip_length_check=$(am__skip_length_check) \
+		am__skip_mode_fix=$(am__skip_mode_fix) distdir

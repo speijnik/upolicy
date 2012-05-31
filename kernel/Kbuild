@@ -1,0 +1,15 @@
+obj-m := upolicy.o
+
+upolicy-y := 			\
+	context.o		\
+	lib.o			\
+	lsm.o 			\
+	netlink.o 		\
+	tracer.o		\
+	tracee.o		\
+	handler_cred.o 		\
+	handler_fs.o 		\
+	handler_ptrace.o 	\
+	handler_socket.o	\
+	handler_task.o \
+	handler_bprm.o

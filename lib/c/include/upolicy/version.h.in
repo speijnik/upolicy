@@ -1,0 +1,39 @@
+/* version.h
+ *
+ * Copyright (C) 2012 Stephan Peijnik <stephan@peijnik.at>
+ *
+ * This file is part of upolicy.
+ *
+ *  upolicy is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  upolicy is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with upolicy.  If not, see <http://www.gnu.org/licenses/>.
+ */
+#ifndef UPOLICY_VERSION_H
+#define UPOLICY_VERSION_H
+
+/**
+ * @addtogroup Misc Miscellaneous
+ * @{
+ */
+
+/** upolicy major version */
+#define UPOLICY_VERSION_MAJOR @UPOLICY_VERSION_MAJOR@
+/** upolicy minor version */
+#define UPOLICY_VERSION_MINOR @UPOLICY_VERSION_MINOR@
+/** upolicy patch version */
+#define UPOLICY_VERSION_PATCH @UPOLICY_VERSION_PATCH@
+
+/**
+ * @}
+ */
+
+#endif /* UPOLICY_VERSION_H */

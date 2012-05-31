@@ -1,0 +1,127 @@
+#
+# NOTE! Don't add files that are generated in specific
+# subdirectories here. Add them in the ".gitignore" file
+# in that subdirectory instead.
+#
+# NOTE! Please use 'git ls-files -i --exclude-standard'
+# command after changing this file, to see if there are
+# any tracked files which get ignored after the change.
+#
+# Normal rules
+#
+.*
+*.o
+*.o.*
+*.a
+*.s
+*.ko
+*.so
+*.so.dbg
+*.mod.c
+*.i
+*.lst
+*.symtypes
+*.order
+modules.builtin
+*.elf
+*.bin
+*.gz
+*.bz2
+*.lzma
+*.xz
+*.lzo
+*.patch
+*.gcno
+
+#
+# Top-level generic files
+#
+/tags
+/TAGS
+/linux
+/vmlinux
+/vmlinuz
+/System.map
+/Module.markers
+/Module.symvers
+
+/kernel/Module.symvers
+
+#
+# Debian directory (make deb-pkg)
+#
+/debian/
+
+#
+# git files that we don't want to ignore even it they are dot-files
+#
+!.gitignore
+!.mailmap
+
+#
+# Generated include files
+#
+include/config
+include/linux/version.h
+include/generated
+arch/*/include/generated
+
+# stgit generated dirs
+patches-*
+
+# quilt's files
+patches
+series
+
+# cscope files
+cscope.*
+ncscope.*
+
+# gnu global files
+GPATH
+GRTAGS
+GSYMS
+GTAGS
+
+*.orig
+*~
+\#*#
+Makefile.in
+/aclocal.m4
+/autom4te.cache
+/configure
+/install-sh
+/missing
+/config.log
+/config.status
+/config.guess
+/config.sub
+Makefile
+/depcomp
+/libtool
+/ltmain.sh
+*.la
+*.lo
+/config.h
+/config.h.in
+/stamp-h1
+/m4/libtool.m4
+/m4/lt*.m4
+/py-compile
+*.pyc
+*.pyo
+
+/examples/c/example_init
+/examples/c/example_nosocket
+/examples/c/example_socket_nolisten
+/examples/c/example_localhost_only
+/examples/c/example_nokill
+/examples/c/example_exec
+/kernel/include/kupolicy/netlink_version.h
+/lib/c/include/upolicy/version.h
+
+/doc/apidoc/Doxyfile
+/doc/apidoc/html/
+/doc/apidoc/latex/
+/doc/kerneldoc/*.html
+/upolicy-*.tar.gz
